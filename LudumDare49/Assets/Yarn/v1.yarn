@@ -1,0 +1,151 @@
+title: Start_Gluttony
+tags: 
+colorID: 0
+position: 424,-233
+---
+<<if $did_meet_gluttony is false>>
+    <<set $did_meet_gluttony to true>>
+    Gluttony: Hey! Welcome back!
+    Player: ...
+    Player: What are you doing here?
+    Gluttony: I'm cooking. Well, I wanted to cook at least.
+    Gluttony: But the pantry is empty, there is no food.
+    Player: Did you eat it?
+    Gluttony: Well, maybeee...
+    Gluttony: But that doesn't matter now!
+    Gluttony: Could you do me a favour and fetch me some ingredients?
+    [[Why not? But I better get a portion of whatever you're  making when you're done!|Gluttony_AcceptQuest]]
+    [[Meh, do it yourself!|Gluttony_RejectQuest]]
+<<else>>
+    <<if $gluttony_quest_complete is false>>
+        Gluttony: Do you have my ingredients?
+            -> Yes, here!<<if $has_ingredients is true>>
+                [[Gluttony_CompleteQuest]]
+            -> No, not yet
+                Gluttony: Then off you go
+    <<else>>
+        Gluttony: I'm sure you have better stuff to do than helping me.
+    <<endif>>
+<<endif>>
+===
+title: Gluttony_AcceptQuest
+tags: 
+colorID: 0
+position: 756,199
+---
+Player: But I better get a portion of whatever you're making when you're done!
+Gluttony: I would say that you can count on me, but food seems to disappear around me...
+Gluttony: But I promise to help you handle the others.
+Player: OTHERS???
+Gluttony: You will see.
+Gluttony: Now get me those ingredients!
+===
+title: Gluttony_RejectQuest
+tags: 
+colorID: 0
+position: 763,-69
+---
+Gluttony: Please!
+[[Nope!|Gluttony_RejectQuest]]
+[[Okay, okay, I'll do it!|Gluttony_AcceptQuest]]
+===
+title: Gluttony_CompleteQuest
+tags: 
+colorID: 0
+position: 402,204
+---
+<<set $gluttony_quest_complete to true>>
+Gluttony: Yaaaay, you found something. Lemme see!
+Gluttony: ... Salad, ugh...
+Gluttony: ... Cheese, yum ...
+Gluttony: ... And I can use that stuff too...
+Gluttony: Okay, I think I can come up with something delicious now!
+Gluttony: You know where to find me when you need something.
+===
+title: Start_Wrath
+tags: 
+colorID: 0
+position: -20,579
+---
+Wrath: GRRROOOAAHHH!
+Wrath: *Shows bar, but the adjustable weights seem missing*
+-> Do you want me to find the missing weights?
+Wrath: UHUH! *nods head*
+
+
+
+
+-> Now you can continue your training
+Wrath: RAAAH! *puts weights on bar*
+Wrath: HURGH! *lifts bar without struggling*
+===
+title: Start_Greed
+tags: 
+colorID: 0
+position: 403,577
+---
+<<if $did_meet_greed is false>>
+    <<set $did_meet_greed to true>>
+    Greed: What do you want?
+    -> Nothing
+        Greed: Then leave me alone.
+    -> Say hello
+        Greed: Hello back.
+        Greed: Now go away.
+    Greed: And before you ask, you also can't have those weights, those are mine now.
+<<else>>
+    <<if $has_gold is true>>
+        Greed: What's that shiny thing?
+            -> Gold.
+            ->
+        Greed: 
+    <<endif>>
+<<endif>>
+===
+title: Gold_Gluttony
+tags: 
+colorID: 0
+position: 832,570
+---
+Gluttony: Hey
+<<if $has_gold is false>>
+    Gluttony: Look what I found!
+    Gluttony: I tried to eat it, but I hurt my teeth instead.
+    Gluttony: Here, take it!
+    <<set $has_gold to true>>
+<<endif>>
+===
+title: Node
+tags: 
+colorID: 0
+position: -119,980
+---
+Sloth: Heeey, someone wants to sleep here!
+Sloth: Stop making such weird noises!
+Lust: Stop being such a bore!
+Sloth: Bore? You're a weirdo!
+Lust: The only weird one here would sleep 25h a day if it was possible.
+Sloth: Says the one with questionable objects in their nightstand drawer.
+Lust: At least those are fun, in contrast to a certain roommate.
+Sloth: Fun? I dunno how...
+Sloth: Oh no, not another one...
+-> Who, me?
+-> Sorry, I didn't mean to intrude...
+Lust: Oh, it's okay. I like company - especially interesting people...
+Sloth: I HEARD THAT! Yeesh, take a room, you two...
+Sloth: *dozes off*
+
+
+
+
+Sloth: ZZZZZzzzz
+
+Lust: Pssst, be quiet! I don't want to deal with a cranky sleepyhead.
+===
+title: Node_2
+tags: 
+colorID: 0
+position: 225,999
+---
+Empty Text
+===
