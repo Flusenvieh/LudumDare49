@@ -1,7 +1,7 @@
 title: Start_Gluttony
 tags: 
 colorID: 0
-position: 424,-233
+position: 309,-408
 ---
 <<if $did_meet_gluttony is false>>
     <<set $did_meet_gluttony to true>>
@@ -14,8 +14,10 @@ position: 424,-233
     Gluttony: Well, maybeee...
     Gluttony: But that doesn't matter now!
     Gluttony: Could you do me a favour and fetch me some ingredients?
-    [[Why not? But I better get a portion of whatever you're  making when you're done!|Gluttony_AcceptQuest]]
-    [[Meh, do it yourself!|Gluttony_RejectQuest]]
+    -> Why not?
+        [[Gluttony_AcceptQuest]]
+    -> Meh, do it yourself!
+        [[Gluttony_RejectQuest]]
 <<else>>
     <<if $gluttony_quest_complete is false>>
         Gluttony: Do you have my ingredients?
@@ -27,12 +29,11 @@ position: 424,-233
         Gluttony: I'm sure you have better stuff to do than helping me.
     <<endif>>
 <<endif>>
-//[[Bye|Bye]]
 ===
 title: Gluttony_AcceptQuest
 tags: 
 colorID: 0
-position: 756,199
+position: 936,68
 ---
 Player: But I better get a portion of whatever you're making when you're done!
 Gluttony: I would say that you can count on me, but food seems to disappear around me...
@@ -44,7 +45,7 @@ Gluttony: Now get me those ingredients!
 title: Gluttony_RejectQuest
 tags: 
 colorID: 0
-position: 763,-69
+position: 922,-222
 ---
 Gluttony: Please!
 [[Nope!|Gluttony_RejectQuest]]
@@ -53,7 +54,7 @@ Gluttony: Please!
 title: Gluttony_CompleteQuest
 tags: 
 colorID: 0
-position: 402,204
+position: 269,58
 ---
 <<set $gluttony_quest_complete to true>>
 Gluttony: Yaaaay, you found something. Lemme see!
@@ -68,17 +69,17 @@ tags:
 colorID: 0
 position: -20,579
 ---
+<<if visited("Start_Wrath") is false>>
 Wrath: GRRROOOAAHHH!
 Wrath: *Shows bar, but the adjustable weights seem missing*
 -> Do you want me to find the missing weights?
 Wrath: UHUH! *nods head*
-
-
-
-
+<<endif>>
+<<if visited("Gold_Gluttony") is true>>
 -> Now you can continue your training
 Wrath: RAAAH! *puts weights on bar*
 Wrath: HURGH! *lifts bar without struggling*
+<<endif>>
 ===
 title: Start_Greed
 tags: 
@@ -141,19 +142,4 @@ Sloth: *dozes off*
 Sloth: ZZZZZzzzz
 
 Lust: Pssst, be quiet! I don't want to deal with a cranky sleepyhead.
-===
-title: test
-tags: 
-colorID: 0
-position: -128,-236
----
-[[Gold|Gold_Gluttony]]
-[[Gluttony|Start_Gluttony]]
-===
-title: Bye
-tags: 
-colorID: 0
-position: 1204,-453
----
-Gluttony: See ya
 ===
