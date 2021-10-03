@@ -21,6 +21,14 @@ public class StartDialogueNode : MonoBehaviour
     private void Start()
     {
         Assert.IsTrue(dialogueRunner.NodeExists(nodeToRun), "Following node could not be found: " + nodeToRun);
+
+    }
+
+    private void OnDrawGizmos()
+    {
+                // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, interactionDistance);
     }
 
     // Update is called once per frame

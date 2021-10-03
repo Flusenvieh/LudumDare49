@@ -21,7 +21,7 @@ position: 309,-408
 <<else>>
     <<if $gluttony_quest_complete is false>>
         Gluttony: Do you have my ingredients?
-            -> Yes, here!<<if $has_ingredients is true>>
+            -> Yes, here!<<if visited("Item_Pickup_Groceries") is true>>
                 [[Gluttony_CompleteQuest]]
             -> No, not yet
                 Gluttony: Then off you go
@@ -67,7 +67,7 @@ Gluttony: You know where to find me when you need something.
 title: Start_Wrath
 tags: 
 colorID: 0
-position: -20,579
+position: 157,532
 ---
 <<if visited("Start_Wrath") is false>>
 Wrath: GRRROOOAAHHH!
@@ -84,7 +84,7 @@ Wrath: HURGH! *lifts bar without struggling*
 title: Start_Greed
 tags: 
 colorID: 0
-position: 403,577
+position: 403,532
 ---
 <<if $did_meet_greed is false>>
     <<set $did_meet_greed to true>>
@@ -106,7 +106,7 @@ position: 403,577
 title: Gold_Gluttony
 tags: 
 colorID: 0
-position: 832,570
+position: 669,527
 ---
 Gluttony: Hey
 <<if $has_gold is false>>
@@ -116,30 +116,216 @@ Gluttony: Hey
     <<set $has_gold to true>>
 <<endif>>
 ===
+title: Start_RoomsQuest
+tags: 
+colorID: 0
+position: -120,960
+---
+<<if visited("Start_Wrath") is false>>
+    Sloth: Heeey, someone wants to sleep here!
+    Sloth: Stop making such weird noises!
+    Lust: Stop being such a bore!
+    Sloth: Bore? You're a weirdo!
+    Lust: The only weird one here would sleep 25h a day if it was possible.
+    Sloth: Says the one with questionable objects in their nightstand drawer.
+    Lust: At least those are fun, in contrast to a certain roommate.
+    Sloth: Fun? I dunno how...
+    Sloth: Oh no, not another one...
+    -> Who, me?
+    -> Sorry, I didn't mean to intrude...
+    Lust: Oh, it's okay. I like company - especially interesting people...
+    Sloth: I HEARD THAT! Yeesh, take a room, you two...
+    Sloth: *dozes off*
+<<endif>>
+===
+title: RoomQuest_Sloth
+tags: 
+colorID: 0
+position: 160,1000
+---
+<<if $placement_pickup_counter < 7>>
+    Sloth: ZZZZZzzzz
+<<endif>>
+===
+title: RoomQuest_Envy
+tags: 
+colorID: 0
+position: 440,1000
+---
+<<if $placement_pickup_counter < 7>>
+    Lust: Pssst, be quiet! I don't want to deal with a cranky sleepyhead.
+<<endif>>
+===
+title: Item_Pickup_Gluttony
+tags: 
+colorID: 0
+position: -640,1360
+---
+Chest: *This chest contains food magazines and cookbooks*
+Chest: *You put everything in your inventory*
+<<set $moving_pickup_counter to $moving_pickup_counter + 1>>
+===
+title: Item_Pickup_Greed
+tags: 
+colorID: 0
+position: -400,1360
+---
+Chest: *From glittery shiny things to literal rocks, this chest contains a heap of collected things*
+Chest: *You take out a bag and put everything in it*
+Chest: *Hopefully it won't break and spill everything on the floor*
+<<set $moving_pickup_counter to $moving_pickup_counter + 1>>
+===
+title: Item_Pickup_Pride
+tags: 
+colorID: 0
+position: -160,1360
+---
+Chest: *This chest's owner seems to love taking selfies*
+Chest: *You pick up a big photo album*
+<<set $moving_pickup_counter to $moving_pickup_counter + 1>>
+===
+title: Item_Pickup_Sloth
+tags: 
+colorID: 0
+position: 80,1360
+---
+Chest: *A plushy zoo awaits you after opening this chest*
+Chest: *You will guide them to their new home*
+<<set $moving_pickup_counter to $moving_pickup_counter + 1>>
+===
+title: Item_Pickup_Envy
+tags: 
+colorID: 0
+position: 320,1360
+---
+Chest: *Weird, this chest only contains a list of things*
+<<if $moving_pickup_counter > 0 and $moving_pickup_counter < 7 >>
+    Chest: *Even weirder, you have seen some of those things recently*
+<<endif>>
+<<if $moving_pickup_counter eq 7 >>
+    Chest: *Hey, those are all things from the other chests!*
+<<endif>>
+Chest: *Still, you put it in your bag*
+<<set $moving_pickup_counter to $moving_pickup_counter + 1>>
+===
+title: Item_Pickup_Wrath
+tags: 
+colorID: 0
+position: 560,1360
+---
+Chest: *Fitness seems to be the main concern of this chest's owner*
+Chest: *Moving this stuff is going to be challenging*
+<<set $moving_pickup_counter to $moving_pickup_counter + 1>>
+===
+title: Item_Pickup_Lust
+tags: 
+colorID: 0
+position: 800,1360
+---
+Chest: *You don't know what half of this stuff is, and you get the slight feeling that it's better this way*
+Chest: *Carefully you pick everything up, trying to touch everything as little as possible*
+<<set $moving_pickup_counter to $moving_pickup_counter + 1>>
+===
+title: Item_Placement_Gluttony
+tags: 
+colorID: 0
+position: -640,1600
+---
+<<if visited("Item_Pickup_Gluttony") is true>>
+    Chest: *You put the books away*
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<endif>>
+===
+title: Item_Placement_Greed
+tags: 
+colorID: 0
+position: -400,1600
+---
+<<if visited("Item_Pickup_Greed") is true>>
+    Chest: *You try to organize this heap of things, but in the end you just put it all into a big box*
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<endif>>
+===
+title: Item_Placement_Pride
+tags: 
+colorID: 0
+position: -160,1600
+---
+<<if visited("Item_Pickup_Pride") is true>>
+    Chest: You put the selfie album on the nightstand.
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<endif>>
+===
+title: Item_Placement_Sloth
+tags: 
+colorID: 0
+position: 80,1600
+---
+<<if visited("Item_Pickup_Sloth") is true>>
+    Chest: *You take your time with placing every plushie on the bed, and hug each of them*
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<endif>>
+===
+title: Item_Placement_Envy
+tags: 
+colorID: 0
+position: 320,1600
+---
+<<if visited("Item_Pickup_Envy") is true>>
+    Chest: *You take a last skeptical look at the list of things and leave it in the room*
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<endif>>
+===
+title: Item_Placement_Wrath
+tags: 
+colorID: 0
+position: 560,1600
+---
+<<if visited("Item_Pickup_Wrath") is true>>
+    Chest: *On the last few steps your strength leaves you*
+    Chest: *You find out that heavvy fitness equipment hurts when it lands on your foot*
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<endif>>
+===
+title: Item_Placement_Lust
+tags: 
+colorID: 0
+position: 800,1600
+---
+<<if visited("Item_Pickup_Lust") is true>>
+    Chest: *You just dump everything into a drawer and try to forget about its contents*
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<endif>>
+===
+title: Item_Pickup_Groceries
+tags: 
+colorID: 0
+position: -240,-280
+---
+<<if visited("Start_Gluttony") is true>>
+    Bag: *Seems like someone bought groceries*
+    Bag: *You pick the bag up*
+<<endif>>
+===
+title: End_RoomsQuest
+tags: 
+colorID: 0
+position: 0,1960
+---
+<<if $placement_pickup_counter eq 7>>
+    Player: Hey, I found some spare rooms. Now you don't have to share.
+    Lust: Nice. I hope the walls are quite soundproof.
+    Sloth: *slowly wakes up* Five more minutes...
+    Lust: No, except you want to stay in this room together.
+    Lust: Come, let's look for our new rooms.
+    Sloth: Okay, I'm coming. I just have to wake up a bit...
+    Lust: That could take hours. Maybe go on without us.
+<<endif>>
+===
 title: Node
 tags: 
 colorID: 0
-position: -119,980
+position: -200,2400
 ---
-Sloth: Heeey, someone wants to sleep here!
-Sloth: Stop making such weird noises!
-Lust: Stop being such a bore!
-Sloth: Bore? You're a weirdo!
-Lust: The only weird one here would sleep 25h a day if it was possible.
-Sloth: Says the one with questionable objects in their nightstand drawer.
-Lust: At least those are fun, in contrast to a certain roommate.
-Sloth: Fun? I dunno how...
-Sloth: Oh no, not another one...
--> Who, me?
--> Sorry, I didn't mean to intrude...
-Lust: Oh, it's okay. I like company - especially interesting people...
-Sloth: I HEARD THAT! Yeesh, take a room, you two...
-Sloth: *dozes off*
-
-
-
-
-Sloth: ZZZZZzzzz
-
-Lust: Pssst, be quiet! I don't want to deal with a cranky sleepyhead.
+Empty Text
 ===
