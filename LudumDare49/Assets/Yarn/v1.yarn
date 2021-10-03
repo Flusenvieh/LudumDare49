@@ -1,7 +1,7 @@
 title: Start_Gluttony
 tags: 
 colorID: 0
-position: 309,-408
+position: 320,-400
 ---
 <<if $did_meet_gluttony is false>>
     <<set $did_meet_gluttony to true>>
@@ -21,10 +21,10 @@ position: 309,-408
 <<else>>
     <<if $gluttony_quest_complete is false>>
         Gluttony: Do you have my ingredients?
-            -> Yes, here!<<if visited("Item_Pickup_Groceries") is true>>
-                [[Gluttony_CompleteQuest]]
-            -> No, not yet
-                Gluttony: Then off you go
+        -> Yes, here!<<if visited("Item_Pickup_Groceries") is true>>
+            [[Gluttony_CompleteQuest]]
+        -> No, not yet
+            Gluttony: Then off you go
     <<else>>
         Gluttony: I'm sure you have better stuff to do than helping me.
     <<endif>>
@@ -45,7 +45,7 @@ Gluttony: Now get me those ingredients!
 title: Gluttony_RejectQuest
 tags: 
 colorID: 0
-position: 922,-222
+position: 920,-240
 ---
 Gluttony: Please!
 [[Nope!|Gluttony_RejectQuest]]
@@ -67,24 +67,33 @@ Gluttony: You know where to find me when you need something.
 title: Start_Wrath
 tags: 
 colorID: 0
-position: 157,532
+position: 160,520
 ---
 <<if visited("Start_Wrath") is false>>
-Wrath: GRRROOOAAHHH!
-Wrath: *Shows bar, but the adjustable weights seem missing*
--> Do you want me to find the missing weights?
-Wrath: UHUH! *nods head*
+    Wrath: GRRROOOAAHHH!
+    Wrath: *Shows bar, but the adjustable weights seem missing*
+    Player: Do you want me to find the missing weights?
+    Wrath: UHUH! *nods head*
 <<endif>>
-<<if visited("Gold_Gluttony") is true>>
--> Now you can continue your training
-Wrath: RAAAH! *puts weights on bar*
-Wrath: HURGH! *lifts bar without struggling*
+<<if $weight_item > 0 >>
+    Player: Now you can continue your training
+    Wrath: RAAAH! *puts weights on bar*
+    <<if $weight_item < 3>>
+        Wrath: HURGH! *lifts bar without struggling*
+        Player: Maybe you need something heavier...
+    <<elseif $weight_item eq 3>>
+        Wrath: HUUUURGHHHH! *lifts bar slowly*
+        Player: Seems perfect
+    <<else>>
+        Wrath: UMMMPFFF! *weight doesn't move*
+        Player: Perhaps a bit too much...
+    <<endif>>
 <<endif>>
 ===
 title: Start_Greed
 tags: 
 colorID: 0
-position: 403,532
+position: 400,520
 ---
 <<if $did_meet_greed is false>>
     <<set $did_meet_greed to true>>
@@ -95,21 +104,43 @@ position: 403,532
         Greed: Hello back.
         Greed: Now go away.
     Greed: And before you ask, you also can't have those weights, those are mine now.
-<<else>>
-    <<if $has_gold is true>>
-        Greed: What's that shiny thing?
-            -> Gold.
-        Greed: 
-    <<endif>>
+<<endif>>
+<<if $has_gold is true>>
+    Greed: What's that shiny thing?
+        -> Gold
+        -> Something valuable
+    Greed: Okay, I would exchange it for one of those weights.
+    Greed: Which one do you want?
+    <<set $weight_item to 0>>
+    -> 10kg
+        <<set $weight_item to 1>>
+    -> 25kg
+        <<set $weight_item to 2>>        
+    -> 50kg
+        <<set $weight_item to 3>>        
+    -> 100kg
+        <<set $weight_item to 4>>
+    <<set $has_gold to false>>
+<<elseif $weight_item > 0 >>
+    Player: Can I please exchange my weight?
+    Greed: Hmmm... Which one do you want?
+    -> 10kg <<if $weight_item neq 1 >>
+        <<set $weight_item to 1>>
+    -> 25kg <<if $weight_item neq 2 >>
+        <<set $weight_item to 2>>        
+    -> 50kg <<if $weight_item neq 3 >>
+        <<set $weight_item to 3>>        
+    -> 100kg <<if $weight_item neq 4 >>
+        <<set $weight_item to 4>>
 <<endif>>
 ===
 title: Gold_Gluttony
 tags: 
 colorID: 0
-position: 669,527
+position: 680,520
 ---
 Gluttony: Hey
-<<if $has_gold is false>>
+<<if $has_gold is false and $weight_item eq 0>>
     Gluttony: Look what I found!
     Gluttony: I tried to eat it, but I hurt my teeth instead.
     Gluttony: Here, take it!
@@ -302,10 +333,8 @@ tags:
 colorID: 0
 position: -240,-280
 ---
-<<if visited("Start_Gluttony") is true>>
-    Bag: *Seems like someone bought groceries*
-    Bag: *You pick the bag up*
-<<endif>>
+Bag: *Seems like someone bought groceries*
+Bag: *You pick the bag up*
 ===
 title: End_RoomsQuest
 tags: 
@@ -328,4 +357,11 @@ colorID: 0
 position: -200,2400
 ---
 Empty Text
+===
+title: TrainingPlan
+tags: 
+colorID: 0
+position: 1000,480
+---
+*Some notes about training progress*
 ===
