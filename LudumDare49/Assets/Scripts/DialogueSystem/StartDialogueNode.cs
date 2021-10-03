@@ -34,7 +34,7 @@ public class StartDialogueNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) <= interactionDistance && Input.GetKeyDown(KeyCode.Space))
+        if (Vector3.Distance(transform.position, player.position) <= interactionDistance && Input.GetKeyDown(KeyCode.E))
         {
             dialogueRunner.StartDialogue(nodeToRun);
             dialogueRunner.onDialogueComplete.AddListener(DestroyEntity);

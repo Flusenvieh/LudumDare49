@@ -14,7 +14,7 @@ position: 320,-400
     Gluttony: Well, maybeee...
     Gluttony: But that doesn't matter now!
     Gluttony: Could you do me a favour and fetch me some ingredients?
-    -> Why not?
+    -> Why not.
         [[Gluttony_AcceptQuest]]
     -> Meh, do it yourself!
         [[Gluttony_RejectQuest]]
@@ -33,7 +33,7 @@ position: 320,-400
 title: Gluttony_AcceptQuest
 tags: 
 colorID: 0
-position: 936,68
+position: 920,80
 ---
 Player: But I better get a portion of whatever you're making when you're done!
 Gluttony: I would say that you can count on me, but food seems to disappear around me...
@@ -41,6 +41,7 @@ Gluttony: But I promise to help you handle the others.
 Player: OTHERS???
 Gluttony: You will see.
 Gluttony: Now get me those ingredients!
+<<nextStage>>
 ===
 title: Gluttony_RejectQuest
 tags: 
@@ -63,6 +64,7 @@ Gluttony: ... Cheese, yum ...
 Gluttony: ... And I can use that stuff too...
 Gluttony: Okay, I think I can come up with something delicious now!
 Gluttony: You know where to find me when you need something.
+<<nextStage>>
 ===
 title: Start_Wrath
 tags: 
@@ -84,6 +86,7 @@ position: 160,520
     <<elseif $weight_item eq 3>>
         Wrath: HUUUURGHHHH! *lifts bar slowly*
         Player: Seems perfect
+        <<nextStage>>
     <<else>>
         Wrath: UMMMPFFF! *weight doesn't move*
         Player: Perhaps a bit too much...
@@ -140,7 +143,7 @@ colorID: 0
 position: 680,520
 ---
 Gluttony: Hey
-<<if $has_gold is false and $weight_item eq 0>>
+<<if visited("Start_Wrath") is true and $has_gold is false and $weight_item eq 0>>
     Gluttony: Look what I found!
     Gluttony: I tried to eat it, but I hurt my teeth instead.
     Gluttony: Here, take it!
