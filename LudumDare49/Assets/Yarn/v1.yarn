@@ -27,6 +27,7 @@ position: 424,-233
         Gluttony: I'm sure you have better stuff to do than helping me.
     <<endif>>
 <<endif>>
+//[[Bye|Bye]]
 ===
 title: Gluttony_AcceptQuest
 tags: 
@@ -97,7 +98,6 @@ position: 403,577
     <<if $has_gold is true>>
         Greed: What's that shiny thing?
             -> Gold.
-            ->
         Greed: 
     <<endif>>
 <<endif>>
@@ -142,10 +142,18 @@ Sloth: ZZZZZzzzz
 
 Lust: Pssst, be quiet! I don't want to deal with a cranky sleepyhead.
 ===
-title: Node_2
+title: test
 tags: 
 colorID: 0
-position: 225,999
+position: -128,-236
 ---
-Empty Text
+[[Gold|Gold_Gluttony]]
+[[Gluttony|Start_Gluttony]]
+===
+title: Bye
+tags: 
+colorID: 0
+position: 1204,-453
+---
+Gluttony: See ya
 ===

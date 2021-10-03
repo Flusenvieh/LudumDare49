@@ -1,0 +1,69 @@
+id,text,file,node,lineNumber
+line:0b37867,Gluttony: Hey! Welcome back!,v1,Start_Gluttony,8
+line:0b18e7e,Player: ...,v1,Start_Gluttony,9
+line:02cec11,Player: What are you doing here?,v1,Start_Gluttony,10
+line:0ff7f19,"Gluttony: I'm cooking. Well, I wanted to cook at least.",v1,Start_Gluttony,11
+line:0dc56d2,"Gluttony: But the pantry is empty, there is no food.",v1,Start_Gluttony,12
+line:05214eb,Player: Did you eat it?,v1,Start_Gluttony,13
+line:0313562,"Gluttony: Well, maybeee...",v1,Start_Gluttony,14
+line:0dabc84,Gluttony: But that doesn't matter now!,v1,Start_Gluttony,15
+line:00a946a,Gluttony: Could you do me a favour and fetch me some ingredients?,v1,Start_Gluttony,16
+line:04a2142,Why not? But I better get a portion of whatever you're  making when you're done!,v1,Start_Gluttony,17
+line:0c9305e,"Meh, do it yourself!",v1,Start_Gluttony,18
+line:0c6411c,Gluttony: Do you have my ingredients?,v1,Start_Gluttony,21
+line:0acbd8d,"Yes, here!",v1,Start_Gluttony,22
+line:0e4b30b,"No, not yet",v1,Start_Gluttony,24
+line:00aa354,Gluttony: Then off you go,v1,Start_Gluttony,25
+line:007fe00,Gluttony: I'm sure you have better stuff to do than helping me.,v1,Start_Gluttony,27
+line:087c817,Player: But I better get a portion of whatever you're making when you're done!,v1,Gluttony_AcceptQuest,36
+line:0cce536,"Gluttony: I would say that you can count on me, but food seems to disappear around me...",v1,Gluttony_AcceptQuest,37
+line:039b0f3,Gluttony: But I promise to help you handle the others.,v1,Gluttony_AcceptQuest,38
+line:0bd6d36,Player: OTHERS???,v1,Gluttony_AcceptQuest,39
+line:0b3c274,Gluttony: You will see.,v1,Gluttony_AcceptQuest,40
+line:0314aba,Gluttony: Now get me those ingredients!,v1,Gluttony_AcceptQuest,41
+line:0d91e3f,Gluttony: Please!,v1,Gluttony_RejectQuest,48
+line:0e6c26e,Nope!,v1,Gluttony_RejectQuest,49
+line:08a9e8b,"Okay, okay, I'll do it!",v1,Gluttony_RejectQuest,50
+line:06a80c2,"Gluttony: Yaaaay, you found something. Lemme see!",v1,Gluttony_CompleteQuest,58
+line:0547fc7,"Gluttony: ... Salad, ugh...",v1,Gluttony_CompleteQuest,59
+line:0e58e07,"Gluttony: ... Cheese, yum ...",v1,Gluttony_CompleteQuest,60
+line:0cbcd3f,Gluttony: ... And I can use that stuff too...,v1,Gluttony_CompleteQuest,61
+line:09cd33f,"Gluttony: Okay, I think I can come up with something delicious now!",v1,Gluttony_CompleteQuest,62
+line:0b75c85,Gluttony: You know where to find me when you need something.,v1,Gluttony_CompleteQuest,63
+line:0ea9972,Wrath: GRRROOOAAHHH!,v1,Start_Wrath,70
+line:0a0c8d6,"Wrath: *Shows bar, but the adjustable weights seem missing*",v1,Start_Wrath,71
+line:0e6aaf0,Do you want me to find the missing weights?,v1,Start_Wrath,72
+line:0db07e5,Wrath: UHUH! *nods head*,v1,Start_Wrath,73
+line:068b7ba,Now you can continue your training,v1,Start_Wrath,78
+line:0bb4381,Wrath: RAAAH! *puts weights on bar*,v1,Start_Wrath,79
+line:01c52c6,Wrath: HURGH! *lifts bar without struggling*,v1,Start_Wrath,80
+line:01d52f6,Greed: What do you want?,v1,Start_Greed,89
+line:025e9e4,Nothing,v1,Start_Greed,90
+line:06cedee,Say hello,v1,Start_Greed,92
+line:0f9db6e,Greed: Then leave me alone.,v1,Start_Greed,91
+line:090a603,Greed: Hello back.,v1,Start_Greed,93
+line:0fa49b4,Greed: Now go away.,v1,Start_Greed,94
+line:0814481,"Greed: And before you ask, you also can't have those weights, those are mine now.",v1,Start_Greed,95
+line:0c72833,Greed: What's that shiny thing?,v1,Start_Greed,98
+line:0d89952,Gold,v1,Start_Greed,99
+line:05e5b0b,Greed:,v1,Start_Greed,100
+line:08adda3,Gluttony: Hey,v1,Gold_Gluttony,109
+line:08b45dc,Gluttony: Look what I found!,v1,Gold_Gluttony,111
+line:0567f10,"Gluttony: I tried to eat it, but I hurt my teeth instead.",v1,Gold_Gluttony,112
+line:04dbd16,"Gluttony: Here, take it!",v1,Gold_Gluttony,113
+line:08fc94d,"Sloth: Heeey, someone wants to sleep here!",v1,Node,122
+line:0bada14,Sloth: Stop making such weird noises!,v1,Node,123
+line:0468de3,Lust: Stop being such a bore!,v1,Node,124
+line:0822dad,Sloth: Bore? You're a weirdo!,v1,Node,125
+line:0d8703f,Lust: The only weird one here would sleep 25h a day if it was possible.,v1,Node,126
+line:04629a2,Sloth: Says the one with questionable objects in their nightstand drawer.,v1,Node,127
+line:074e08e,"Lust: At least those are fun, in contrast to a certain roommate.",v1,Node,128
+line:071d60f,Sloth: Fun? I dunno how...,v1,Node,129
+line:0fd9523,"Sloth: Oh no, not another one...",v1,Node,130
+line:04ba75b,"Who, me?",v1,Node,131
+line:00eef44,"Sorry, I didn't mean to intrude...",v1,Node,132
+line:06dc12b,"Lust: Oh, it's okay. I like company - especially interesting people...",v1,Node,133
+line:092c4bc,"Sloth: I HEARD THAT! Yeesh, take a room, you two...",v1,Node,134
+line:0de96eb,Sloth: *dozes off*,v1,Node,135
+line:0257845,Sloth: ZZZZZzzzz,v1,Node,140
+line:0c6129d,"Lust: Pssst, be quiet! I don't want to deal with a cranky sleepyhead.",v1,Node,142

@@ -8,13 +8,83 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  baseLanguageID: 
-  stringIDs: []
+  baseLanguageID: en
+  stringIDs:
+  - line:0b37867
+  - line:0b18e7e
+  - line:02cec11
+  - line:0ff7f19
+  - line:0dc56d2
+  - line:05214eb
+  - line:0313562
+  - line:0dabc84
+  - line:00a946a
+  - line:04a2142
+  - line:0c9305e
+  - line:0c6411c
+  - line:0acbd8d
+  - line:0e4b30b
+  - line:00aa354
+  - line:007fe00
+  - line:087c817
+  - line:0cce536
+  - line:039b0f3
+  - line:0bd6d36
+  - line:0b3c274
+  - line:0314aba
+  - line:0d91e3f
+  - line:0e6c26e
+  - line:08a9e8b
+  - line:06a80c2
+  - line:0547fc7
+  - line:0e58e07
+  - line:0cbcd3f
+  - line:09cd33f
+  - line:0b75c85
+  - line:0ea9972
+  - line:0a0c8d6
+  - line:0e6aaf0
+  - line:0db07e5
+  - line:068b7ba
+  - line:0bb4381
+  - line:01c52c6
+  - line:01d52f6
+  - line:025e9e4
+  - line:06cedee
+  - line:0f9db6e
+  - line:090a603
+  - line:0fa49b4
+  - line:0814481
+  - line:0c72833
+  - line:0d89952
+  - line:05e5b0b
+  - line:08adda3
+  - line:08b45dc
+  - line:0567f10
+  - line:04dbd16
+  - line:08fc94d
+  - line:0bada14
+  - line:0468de3
+  - line:0822dad
+  - line:0d8703f
+  - line:04629a2
+  - line:074e08e
+  - line:071d60f
+  - line:0fd9523
+  - line:04ba75b
+  - line:00eef44
+  - line:06dc12b
+  - line:092c4bc
+  - line:0de96eb
+  - line:0257845
+  - line:0c6129d
   compilationStatus: 0
-  isSuccesfullyCompiled: 0
-  compilationErrorMessage: "Error on line 90 at position 9:\nmismatched input ' '
-    expecting {HASHTAG, BODY_HASHTAG, TEXT_NEWLINE, TEXT_HASHTAG, TEXT_COMMAND_START,
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: "Error on line 100 at position 9:\nmismatched input '
+    ' expecting {HASHTAG, BODY_HASHTAG, TEXT_NEWLINE, TEXT_HASHTAG, TEXT_COMMAND_START,
     TEXT_COMMANDHASHTAG_COMMAND_START, TEXT_COMMANDHASHTAG_HASHTAG, TEXT_COMMANDHASHTAG_NEWLINE,
     HASHTAG_TAG}\r\n            ->\r\n        ^"
-  baseLanguage: {instanceID: 0}
-  localizations: []
+  baseLanguage: {fileID: 7128917941130120860, guid: 0693c011244af014dbd73a45ee1002a9, type: 3}
+  localizations:
+  - languageName: en
+    text: {fileID: 4900000, guid: 09fc72d650efb964aaf66bdcd2756a02, type: 3}
