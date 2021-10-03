@@ -153,24 +153,23 @@ Gluttony: Hey
 title: Start_RoomsQuest
 tags: 
 colorID: 0
-position: -120,960
+position: -120,1000
 ---
-<<if visited("Start_Wrath") is false>>
-    Sloth: Heeey, someone wants to sleep here!
-    Sloth: Stop making such weird noises!
-    Lust: Stop being such a bore!
-    Sloth: Bore? You're a weirdo!
-    Lust: The only weird one here would sleep 25h a day if it was possible.
-    Sloth: Says the one with questionable objects in their nightstand drawer.
-    Lust: At least those are fun, in contrast to a certain roommate.
-    Sloth: Fun? I dunno how...
-    Sloth: Oh no, not another one...
-    -> Who, me?
-    -> Sorry, I didn't mean to intrude...
-    Lust: Oh, it's okay. I like company - especially interesting people...
-    Sloth: I HEARD THAT! Yeesh, take a room, you two...
-    Sloth: *dozes off*
-<<endif>>
+Sloth: Heeey, someone wants to sleep here!
+Sloth: Stop making such weird noises!
+Lust: Stop being such a bore!
+Sloth: Bore? You're a weirdo!
+Lust: The only weird one here would sleep 25h a day if it was possible.
+Sloth: Says the one with questionable objects in their nightstand drawer.
+Lust: At least those are fun, in contrast to a certain roommate.
+Sloth: Fun? I dunno how...
+Sloth: Oh no, not another one...
+-> Who, me?
+-> Sorry, I didn't mean to intrude...
+Lust: Oh, it's okay. I like company - especially interesting people...
+Sloth: I HEARD THAT! Yeesh, take a room, you two...
+Sloth: *dozes off*
+<<nextStage>>
 ===
 title: RoomQuest_Sloth
 tags: 
@@ -181,7 +180,7 @@ position: 160,1000
     Sloth: ZZZZZzzzz
 <<endif>>
 ===
-title: RoomQuest_Envy
+title: RoomQuest_Lust
 tags: 
 colorID: 0
 position: 440,1000
@@ -364,7 +363,7 @@ Empty Text
 title: TrainingPlan
 tags: 
 colorID: 0
-position: 1000,480
+position: 920,520
 ---
 *Some notes about training progress*
 ===
