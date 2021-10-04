@@ -14,11 +14,21 @@ public class TicTacToeHandling : MonoBehaviour
     [SerializeField]
     private Button[] PlayingBoardFields = new Button[9];
 
+    [SerializeField]
+    private GameObject[] Boards = new GameObject[5];
+
+    [SerializeField]
+    private GameObject UIBoard;
+
+
+    private int CurrentTurn;
     private BoardV2 gamingBoard;
 
     void Start()
     {
         gamingBoard = new BoardV2();
+
+        CurrentTurn = 0;
     }
 
     public void PlayerPressedButton(int PressedButtonFieldIndex)
@@ -29,10 +39,32 @@ public class TicTacToeHandling : MonoBehaviour
             PlayingBoardFields[PressedButtonFieldIndex].transform.GetChild(0).GetComponent<Image>().sprite = X_Icon;
             PlayingBoardFields[PressedButtonFieldIndex].transform.GetChild(0).GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-            
+
             //DoAITurn();
-            CheckGameOver();
+            //CheckGameOver();
+
+            StartCoroutine(DeactivateAndActivateBoard(1000));
+            StartCoroutine(AITurn(2000));
+            
         }
+    }
+
+    private IEnumerator DeactivateAndActivateBoard(int WaitForMilliseconds)
+	{
+        yield return new WaitForSeconds(WaitForMilliseconds / 1000);
+        Boards[CurrentTurn].SetActive(false);
+        UIBoard.SetActive(false);
+        CurrentTurn++;
+        if(CurrentTurn<=4)
+		{
+            Boards[CurrentTurn].SetActive(true);
+		}
+    }
+
+    private IEnumerator AITurn(int WaitForMilliseconds)
+	{
+        yield return new WaitForSeconds(WaitForMilliseconds / 1000);
+        DoAITurn();
     }
 
     public void DoAITurn()
