@@ -483,6 +483,7 @@ Green: Oh! Really? Thanks! But now that you mention it, you are actually kind of
 Blue: Too late. It is yours now.
 
 <<wait 3>>
+<<destroy MedalFinished true>>
 <<nextStage>>
 [[End]]
 ===
