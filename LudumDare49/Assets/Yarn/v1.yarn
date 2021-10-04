@@ -155,7 +155,7 @@ Orange: Hey
 title: Start_RoomsQuest
 tags: 
 colorID: 0
-position: -120,1000
+position: 80,920
 ---
 Cyan: Heeey, someone wants to sleep here!
 Cyan: Stop making such weird noises!
@@ -176,23 +176,39 @@ Cyan: *dozes off*
 title: RoomQuest_Sloth
 tags: 
 colorID: 0
-position: 160,1000
+position: -200,1000
 ---
-<<if $placement_pickup_counter < 7>>
-    Cyan: ZZZZZzzzz
+<<if visited("Start_RoomsQuest") is false>>
+    [[Start_RoomsQuest]]
 <<else>>
-    [[End_RoomsQuest]]
+    <<if $placement_pickup_counter < 7>>
+        Cyan: ZZZZZzzzz
+    <<else>>
+        <<if visited("End_RoomsQuest") is false>>
+            [[End_RoomsQuest]]
+        <<else>>
+            Cyan: 5 more minutes...
+        <<endif>>
+    <<endif>>
 <<endif>>
 ===
 title: RoomQuest_Lust
 tags: 
 colorID: 0
-position: 440,1000
+position: 360,1000
 ---
-<<if $placement_pickup_counter < 7>>
-    Pink: Pssst, be quiet! I don't want to deal with a cranky sleepyhead
+<<if visited("Start_RoomsQuest") is false>>
+    [[Start_RoomsQuest]]
 <<else>>
-    [[End_RoomsQuest]]
+    <<if $placement_pickup_counter < 7>>
+        Pink: Pssst, be quiet! I don't want to deal with a cranky sleepyhead
+    <<else>>
+        <<if visited("End_RoomsQuest") is false>>
+            [[End_RoomsQuest]]
+        <<else>>
+            Pink: Come on, wake up!
+        <<endif>>
+    <<endif>>
 <<endif>>
 ===
 title: Item_Pickup_Gluttony
@@ -477,10 +493,16 @@ tags:
 colorID: 0
 position: 240,2960
 ---
-<<if $finished_Medal_Puzzle is false>>
-Green: Please hurry! I need this room.
+<<if visited("Start_Envy_Pride") is false>>
+    [[Start_Envy_Pride]]
 <<else>>
-    [[End_Envy_Pride]]
+    <<if $finished_Medal_Puzzle is false>>
+        Green: Please hurry! I need this room.
+    <<else>>
+        <<if visited("End_Envy_Pride") is false>>
+            [[End_Envy_Pride]]
+        <<endif>>
+    <<endif>>
 <<endif>>
 ===
 title: Pride
@@ -488,11 +510,17 @@ tags:
 colorID: 0
 position: -320,2960
 ---
-<<if $finished_Medal_Puzzle is false>>
-Blue: Are you also here to bother me? This is my room and I won't give it to you.
-Blue: I mean, have you seen how nice my remarkable medal collection looks in here?
+<<if visited("Start_Envy_Pride") is false>>
+    [[Start_Envy_Pride]]
 <<else>>
-    [[End_Envy_Pride]]
+    <<if $finished_Medal_Puzzle is false>>
+        Blue: Are you also here to bother me? This is my room and I won't give it to you.
+        Blue: I mean, have you seen how nice my remarkable medal collection looks in here?
+    <<else>>
+        <<if visited("End_Envy_Pride") is false>>
+            [[End_Envy_Pride]]
+        <<endif>>
+    <<endif>>
 <<endif>>
 ===
 title: End
