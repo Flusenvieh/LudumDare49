@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class MovementController : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class MovementController : MonoBehaviour
 
     private Rigidbody2D _Rigidbody2D;
     private Animator _Animator;
+
+    [SerializeField]
+    DialogueRunner _DialogueRunner;
+    [SerializeField]
+    DialogueUI _DialogueUI;
 
     private bool _WalkLeft, _WalkRight, _WalkFront, _WalkBack;
 
@@ -24,7 +30,7 @@ public class MovementController : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");    
         float inputY = Input.GetAxis("Vertical");
 
-        Vector2 movementVector = new Vector2(_Speed * inputX, _Speed * inputY);
+        Vector2 movementVector = _DialogueRunner.IsDialogueRunning ? new Vector2(0, 0) : new Vector2(_Speed * inputX, _Speed * inputY);
 
         _Rigidbody2D.velocity = movementVector;
 
@@ -56,6 +62,11 @@ public class MovementController : MonoBehaviour
             _Animator.SetBool("Left", false);
             _Animator.SetBool("Front", true);
             _Animator.SetBool("Back", false);
+        }
+
+        if (_DialogueRunner.IsDialogueRunning && Input.GetKeyDown(KeyCode.Space))
+        {
+            _DialogueUI.MarkLineComplete();
         }
     }
 }
