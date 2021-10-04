@@ -31,6 +31,14 @@ public class TicTacToeHandling : MonoBehaviour
         CurrentTurn = 0;
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) && UIBoard.activeInHierarchy == true)
+        {
+            UIBoard.SetActive(false);
+        }
+    }
+
     public void PlayerPressedButton(int PressedButtonFieldIndex)
     {
         if (gamingBoard.getTurn()== BoardV2.State.X && gamingBoard.move(PressedButtonFieldIndex))
