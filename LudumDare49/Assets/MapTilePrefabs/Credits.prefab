@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 812541471636996604}
   - component: {fileID: 1721903735817333320}
+  - component: {fileID: 697255371849540652}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &697255371849540652
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434865416180409682}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bedb98d86be9b8e41a095990f153d61d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2332214614657776323
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2828773306680575588}
   - component: {fileID: 8348356977805528682}
+  - component: {fileID: 5161377262491742035}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -164,6 +185,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5161377262491742035
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332214614657776323}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b29587053d092b74187cde27b2f9f451, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3118038294863916508
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 41717336250680100}
   - component: {fileID: 4651430520717211114}
+  - component: {fileID: 8355125997358524579}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -246,6 +287,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8355125997358524579
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118038294863916508}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf7a07b6e9b2b3e44bea5dd52139f288, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3419279869868493906
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8937310890019671042}
   - component: {fileID: 619079107540618512}
+  - component: {fileID: 1384148260443241796}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -367,6 +428,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1384148260443241796
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4212985087369714964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ffb72b3a5739210478bee87af47c6790, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4276509561597475781
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3029749734625381042}
   - component: {fileID: 2356369211993480336}
+  - component: {fileID: 9048993452894680560}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -449,6 +530,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &9048993452894680560
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276509561597475781}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab84bc502c33f0d4a8b384ac4f6066fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5378050378449801131
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7136836974172688847}
   - component: {fileID: 463921912794542967}
+  - component: {fileID: 3326705556554246061}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -531,6 +632,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3326705556554246061
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378050378449801131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63ebbcd1c85fa55459a7901cbd52ea13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6000827622316472507
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4885518781857670528}
   - component: {fileID: 7087744648577073873}
+  - component: {fileID: 1553279604457255876}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -713,6 +834,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1553279604457255876
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7949868962805492589}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e811d2fad9f76904a954b28fbebe6a3e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8341084668164766185
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5693816706023869212}
   - component: {fileID: 8856052585150943203}
+  - component: {fileID: 5594651050050083248}
   m_Layer: 0
   m_Name: MC_idle_front_0
   m_TagString: Untagged
@@ -795,6 +936,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5594651050050083248
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341084668164766185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8865d4b974d47ea48b9d6046d9884430, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8751231079626778535
 GameObject:
   m_ObjectHideFlags: 0
