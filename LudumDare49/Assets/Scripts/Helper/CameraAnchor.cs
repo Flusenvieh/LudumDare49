@@ -16,7 +16,10 @@ public class CameraAnchor : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		_Camera.transform.position = transform.position;
-		_Camera.orthographicSize =  10 / _ZoomFactor;
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			_Camera.transform.position = transform.position;
+			_Camera.orthographicSize = 10 / _ZoomFactor;
+		}
 	}
 }
