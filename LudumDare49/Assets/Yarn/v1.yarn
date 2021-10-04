@@ -500,7 +500,7 @@ Green: test1
     <<if $finished_Medal_Puzzle is false>>
         Green: Please hurry! I need this room.
     <<else>>
-Green: test 2
+        Green: test 2
         <<if visited("End_Envy_Pride") is false>>
             [[End_Envy_Pride]]
         <<endif>>
@@ -520,7 +520,7 @@ Blue: test 1
         Blue: Are you also here to bother me? This is my room and I won't give it to you.
         Blue: I mean, have you seen how nice my remarkable medal collection looks in here?
     <<else>>
-Blue: test 2
+        Blue: test 2
         <<if visited("End_Envy_Pride") is false>>
             [[End_Envy_Pride]]
         <<endif>>
