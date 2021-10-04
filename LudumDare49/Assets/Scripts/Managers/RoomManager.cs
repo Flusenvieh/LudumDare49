@@ -51,7 +51,7 @@ public class RoomManager : MonoBehaviour
 
 		if (parameters[1] == "true")
 		{
-			Destroy(go);
+			go.SetActive(false);
 		}
 		else
 		{
