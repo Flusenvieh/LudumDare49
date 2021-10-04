@@ -483,7 +483,7 @@ position: -80,3120
     Green: Oh! Really? Thanks! But now that you mention it, you are actually kind of right...
     Blue: Too late. It is yours now.
     
-    <<wait 5>>
+    <<wait 3>>
     <<nextStage>>
     [[End]]
 <<endif>>
@@ -526,7 +526,7 @@ position: -320,2960
 title: End
 tags: 
 colorID: 0
-position: -94,3504
+position: -80,3520
 ---
 Orange: I like him. Without him I probably would have starved.
 Yellow: I doubt that. But yeah, he has a good feeling about what we want and need.
@@ -538,6 +538,8 @@ Green: This room really looks damn boring... but it was really nice of him to he
 Player: ...
 Therapist: Well then. Our session for today is over. I think we made big advancements this time.
 Therapist: Maybe your brain isn't as "unstable" as you always label it.
+<<wait 3>>
+<<nextStage>>
 ===
 title: RoomsNote
 tags: 
