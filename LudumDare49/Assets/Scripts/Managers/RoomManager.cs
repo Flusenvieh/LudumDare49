@@ -25,10 +25,10 @@ public class RoomManager : MonoBehaviour
 
     private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.RightArrow))
-		{
-			NextStage(new string[0]);
-		}
+		//if (Input.GetKeyDown(KeyCode.RightArrow))
+		//{
+		//	NextStage(new string[0]);
+		//}
 	}
 
 	//[YarnCommand("nextStage")]
