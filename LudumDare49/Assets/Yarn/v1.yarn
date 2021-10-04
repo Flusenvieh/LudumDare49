@@ -1,332 +1,527 @@
-[
-	{
-		"title": "Start_Gluttony",
-		"tags": "",
-		"body": "<<if $did_meet_gluttony is false>>\n    <<set $did_meet_gluttony to true>>\n    Orange: Hey! Welcome back!\n    Player: ...\n    Player: What are you doing here?\n    Orange: I'm cooking. Well, I wanted to cook at least.\n    Orange: But the pantry is empty, there is no food.\n    Player: Did you eat it?\n    Orange: Well, maybeee...\n    Orange: But that doesn't matter now!\n    Orange: Could you do me a favour and fetch me some ingredients?\n    -> Why not.\n        [[Gluttony_AcceptQuest]]\n    -> Meh, do it yourself!\n        [[Gluttony_RejectQuest]]\n<<else>>\n    <<if $gluttony_quest_complete is false>>\n        Orange: Do you have my ingredients?\n        -> Yes, here!<<if visited(\"Item_Pickup_Groceries\") is true>>\n            [[Gluttony_CompleteQuest]]\n        -> No, not yet\n            Orange: Then off you go\n    <<else>>\n        Orange: I'm sure you have better stuff to do than helping me.\n    <<endif>>\n<<endif>>\n",
-		"position": {
-			"x": 320,
-			"y": -400
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Gluttony_AcceptQuest",
-		"tags": "",
-		"body": "Player: But I better get a portion of whatever you're making when you're done!\nOrange: I would say that you can count on me, but food seems to disappear around me...\nOrange: But I promise to help you handle the others.\nPlayer: OTHERS???\nOrange: You will see.\nOrange: Now get me those ingredients!\n<<nextStage>>\n",
-		"position": {
-			"x": 920,
-			"y": 80
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Gluttony_RejectQuest",
-		"tags": "",
-		"body": "Orange: Please!\n[[Nope!|Gluttony_RejectQuest]]\n[[Okay, okay, I'll do it!|Gluttony_AcceptQuest]]\n",
-		"position": {
-			"x": 920,
-			"y": -240
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Gluttony_CompleteQuest",
-		"tags": "",
-		"body": "<<set $gluttony_quest_complete to true>>\nOrange: Yaaaay, you found something. Lemme see!\nOrange: ... Salad, ugh...\nOrange: ... Cheese, yum ...\nOrange: ... And I can use that stuff too...\nOrange: Okay, I think I can come up with something delicious now!\nOrange: You know where to find me when you need something.\n<<nextStage>>\n",
-		"position": {
-			"x": 269,
-			"y": 58
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Start_Wrath",
-		"tags": "",
-		"body": "<<if visited(\"Start_Wrath\") is false>>\n    Red: GRRROOOAAHHH!\n    Red: *Shows bar, but the adjustable weights seem missing*\n    Player: Do you want me to find the missing weights?\n    Red: UHUH! *nods head*\n<<endif>>\n<<if $weight_item > 0 >>\n    Player: Now you can continue your training\n    Red: RAAAH! *puts weights on bar*\n    <<if $weight_item < 3>>\n        Red: HURGH! *lifts bar without struggling*\n        Player: Maybe you need something heavier...\n    <<elseif $weight_item eq 3>>\n        Red: HUUUURGHHHH! *lifts bar slowly*\n        Player: Seems perfect\n        <<nextStage>>\n    <<else>>\n        Red: UMMMPFFF! *weight doesn't move*\n        Player: Perhaps a bit too much...\n    <<endif>>\n<<endif>>\n",
-		"position": {
-			"x": 163,
-			"y": 520
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Start_Greed",
-		"tags": "",
-		"body": "<<if $did_meet_greed is false>>\n    <<set $did_meet_greed to true>>\n    Yellow: What do you want?\n    -> Nothing\n        Yellow: Then leave me alone.\n    -> Say hello\n        Yellow: Hello back.\n        Yellow: Now go away.\n    Yellow: And before you ask, you also can't have those weights, those are mine now.\n<<elseif $has_gold is false and $weight_item eq 0>>\n    Yellow: Go away\n<<endif>>\n<<if $has_gold is true>>\n    Yellow: What's that shiny thing?\n        -> Gold\n        -> Something valuable\n    Yellow: Okay, I would exchange it for one of those weights.\n    Yellow: Which one do you want?\n    <<set $weight_item to 0>>\n    -> 98kg\n        <<set $weight_item to 1>>\n    -> 152kg\n        <<set $weight_item to 2>>        \n    -> 294kg\n        <<set $weight_item to 3>>        \n    -> 366kg\n        <<set $weight_item to 4>>\n    <<set $has_gold to false>>\n<<elseif $weight_item > 0 >>\n    Player: Can I please exchange my weight?\n    Yellow: Hmmm... Which one do you want?\n    -> 98kg <<if $weight_item neq 1 >>\n        <<set $weight_item to 1>>\n    -> 152kg <<if $weight_item neq 2 >>\n        <<set $weight_item to 2>>        \n    -> 294kg <<if $weight_item neq 3 >>\n        <<set $weight_item to 3>>        \n    -> 366kg <<if $weight_item neq 4 >>\n        <<set $weight_item to 4>>\n<<endif>>\n",
-		"position": {
-			"x": 400,
-			"y": 520
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Gold_Gluttony",
-		"tags": "",
-		"body": "Orange: Hey\n<<if visited(\"Start_Wrath\") is true and $has_gold is false and $weight_item eq 0>>\n    Orange: Look what I found!\n    Orange: I tried to eat it, but I hurt my teeth instead.\n    Orange: Here, take it!\n    <<set $has_gold to true>>\n<<endif>>\n",
-		"position": {
-			"x": 680,
-			"y": 520
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Start_RoomsQuest",
-		"tags": "",
-		"body": "Cyan: Heeey, someone wants to sleep here!\nCyan: Stop making such weird noises!\nPink: Stop being such a bore!\nCyan: Bore? You're a weirdo!\nPink: The only weird one here would sleep 25h a day if it was possible.\nCyan: Says the one with questionable objects in their nightstand drawer.\nPink: At least those are fun, in contrast to a certain roommate.\nCyan: Fun? I dunno how...\nCyan: Oh no, not another one...\n-> Who, me?\n-> Sorry, I didn't mean to intrude...\nPink: Oh, it's okay. I like company - especially interesting people...\nCyan: I HEARD THAT! Yeesh, take a room, you two...\nCyan: *dozes off*\n<<nextStage>>\n",
-		"position": {
-			"x": -120,
-			"y": 1000
-		},
-		"colorID": 0
-	},
-	{
-		"title": "RoomQuest_Sloth",
-		"tags": "",
-		"body": "<<if $placement_pickup_counter < 7>>\n    Cyan: ZZZZZzzzz\n<<else>>\n    [[End_RoomsQuest]]\n<<endif>>\n",
-		"position": {
-			"x": 160,
-			"y": 1000
-		},
-		"colorID": 0
-	},
-	{
-		"title": "RoomQuest_Lust",
-		"tags": "",
-		"body": "<<if $placement_pickup_counter < 7>>\n    Pink: Pssst, be quiet! I don't want to deal with a cranky sleepyhead\n<<else>>\n    [[End_RoomsQuest]]\n<<endif>>\n",
-		"position": {
-			"x": 440,
-			"y": 1000
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Gluttony",
-		"tags": "",
-		"body": "Chest: *This chest contains food magazines and cookbooks*\nChest: *You put everything in your inventory*\n<<set $room_item to 1>>\n<<if visited(\"Item_Pickup_Gluttony\") is false>>\n    <<set $moving_opened_counter to $moving_opened_counter + 1>>\n<<endif>>\n",
-		"position": {
-			"x": -640,
-			"y": 1360
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Greed",
-		"tags": "",
-		"body": "Chest: *From glittery shiny things to literal rocks, this chest contains a heap of collected things*\nChest: *You take out a bag and put everything in it*\nChest: *Hopefully it won't break and spill everything on the floor*\n<<set $room_item to 2>>\n<<if visited(\"Item_Pickup_Greed\") is false>>\n    <<set $moving_opened_counter to $moving_opened_counter + 1>>\n<<endif>>\n",
-		"position": {
-			"x": -400,
-			"y": 1360
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Pride",
-		"tags": "",
-		"body": "Chest: *This chest's owner seems to love taking selfies*\nChest: *You pick up a big photo album*\n<<set $room_item to 3>>\n<<if visited(\"Item_Pickup_Pride\") is false>>\n    <<set $moving_opened_counter to $moving_opened_counter + 1>>\n<<endif>>\n",
-		"position": {
-			"x": -160,
-			"y": 1360
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Sloth",
-		"tags": "",
-		"body": "Chest: *A plushy zoo awaits you after opening this chest*\nChest: *You try to guide them to their new home*\n<<set $room_item to 4>>\n<<if visited(\"Item_Pickup_Sloth\") is false>>\n    <<set $moving_opened_counter to $moving_opened_counter + 1>>\n<<endif>>\n",
-		"position": {
-			"x": 80,
-			"y": 1360
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Envy",
-		"tags": "",
-		"body": "Chest: *Weird, this chest only contains a list of things*\n<<if $moving_opened_counter > 0 and $moving_opened_counter < 7 >>\n    Chest: *Even weirder, you have seen some of those things recently*\n<<endif>>\n<<if $moving_opened_counter eq 6 >>\n    Chest: *Hey, those are all things from the other chests!*\n<<endif>>\nChest: *Still, you put it in your bag*\n<<set $room_item to 5>>\n",
-		"position": {
-			"x": 320,
-			"y": 1360
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Wrath",
-		"tags": "",
-		"body": "Chest: *Fitness seems to be the main concern of this chest's owner*\nChest: *Moving this stuff is going to be challenging*\n<<set $room_item to 6>>\n<<if visited(\"Item_Pickup_Wrath\") is false>>\n    <<set $moving_opened_counter to $moving_opened_counter + 1>>\n<<endif>>\n",
-		"position": {
-			"x": 560,
-			"y": 1360
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Lust",
-		"tags": "",
-		"body": "Chest: *You don't know what half of this stuff is, and you get the slight feeling that it's better this way*\nChest: *Carefully you pick everything up, trying to touch everything as little as possible*\n\n<<set $room_item to 7>>\n<<if visited(\"Item_Pickup_Lust\") is false>>\n    <<set $moving_opened_counter to $moving_opened_counter + 1>>\n<<endif>>\n",
-		"position": {
-			"x": 800,
-			"y": 1360
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Placement_Gluttony",
-		"tags": "",
-		"body": "<<if $room_item eq 1>>\n    Chest: *You put the books away*\n    <<set $room_item to 0>>\n    <<destroy GluttonyChestNew true>>\n    <<destroy GluttonyChestOld true>>\n    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>\n<<else>>\n    Player: Nah, that can't be right\n<<endif>>",
-		"position": {
-			"x": -640,
-			"y": 1680
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Placement_Greed",
-		"tags": "",
-		"body": "<<if $room_item eq 2>>\n    Chest: *You try to organize this heap of things, but in the end you just put it all into a big box*\n    <<set $room_item to 0>>\n    <<destroy GreedChestNew true>>\n    <<destroy GreedChestOld true>>\n    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>\n<<else>>\n    Player: Nah, that can't be right\n<<endif>>",
-		"position": {
-			"x": -400,
-			"y": 1680
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Placement_Pride",
-		"tags": "",
-		"body": "<<if $room_item eq 3>>\n    Chest: You put the selfie album on the nightstand.\n    <<set $room_item to 0>>\n    <<destroy PrideChestNew true>>\n    <<destroy PrideChestOld true>>\n    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>\n<<else>>\n    Player: Nah, that can't be right\n<<endif>>",
-		"position": {
-			"x": -160,
-			"y": 1680
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Placement_Sloth",
-		"tags": "",
-		"body": "<<if $room_item eq 4>>\n    Chest: *You take your time with placing every plushie on the bed, and hug each of them*\n    <<set $room_item to 0>>\n    <<destroy SlothChestNew true>>\n    <<destroy SlothChestOld true>>\n    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>\n<<else>>\n    Player: Nah, that can't be right\n<<endif>>",
-		"position": {
-			"x": 80,
-			"y": 1680
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Placement_Envy",
-		"tags": "",
-		"body": "<<if $room_item eq 5>>\n    Chest: *You take a last skeptical look at the list of things and leave it in the room*\n    <<set $room_item to 0>>\n    <<destroy EnvyChestNew true>>\n    <<destroy EnvyChestOld true>>\n    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>\n<<else>>\n    Player: Nah, that can't be right\n<<endif>>",
-		"position": {
-			"x": 320,
-			"y": 1680
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Placement_Wrath",
-		"tags": "",
-		"body": "<<if $room_item eq 6>>\n    Chest: *On the last few steps your strength leaves you*\n    Chest: *You find out that heavy fitness equipment hurts when it lands on your foot*\n    <<set $room_item to 0>>\n    <<destroy WrathChestNew true>>\n    <<destroy WrathChestOld true>>\n    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>\n<<else>>\n    Player: Nah, that can't be right\n<<endif>>",
-		"position": {
-			"x": 560,
-			"y": 1680
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Placement_Lust",
-		"tags": "",
-		"body": "<<if $room_item eq 7>>\n    Chest: *You just dump everything into a drawer and try to forget about its contents*\n    <<set $room_item to 0>>\n    <<destroy LustChestNew true>>\n    <<destroy LustChestOld true>>\n    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>\n<<else>>\n    Player: Nah, that can't be right\n<<endif>>",
-		"position": {
-			"x": 800,
-			"y": 1680
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Item_Pickup_Groceries",
-		"tags": "",
-		"body": "Bag: *Seems like someone bought groceries*\nBag: *You pick the bag up*\n<<destroy Groceries true>>\n",
-		"position": {
-			"x": -240,
-			"y": -280
-		},
-		"colorID": 0
-	},
-	{
-		"title": "End_RoomsQuest",
-		"tags": "",
-		"body": "<<if visited(\"End_RoomsQuest\") is false>>\n    Player: Hey, I found some spare rooms. Now you don't have to share.\n    Pink: Nice. I hope the walls are quite soundproof.\n    Cyan: *slowly wakes up* Five more minutes...\n    Pink: No, except you want to stay in this room together.\n    Pink: Come, let's look for our new rooms.\n    Cyan: Okay, I'm coming. I just have to wake up a bit...\n    Pink: That could take hours. Maybe go on without us.\n    <<nextStage>>\n<<endif>>\n",
-		"position": {
-			"x": -80,
-			"y": 2480
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Start_Envy_Pride",
-		"tags": "",
-		"body": "Blue: I told you: This is my room and I won't give it to you!\nGreen: But it is not fair. Your room is way bigger than all the other rooms.\nBlue: If you want a big room you can stay in our previously shared room.\nGreen: You know that I can't do that. That is not allowed anymore.\nBlue: Well then: Bad luck!\nGreen: Oh come on! You have so many cool things. Can't you give up at least one thing?\nBlue: Guess not, sorry.\nGreen: Hmmm... Oh hey, it's you. Can you please help?\n-> I can try.\n<<destroy PrideEnvy_Discussion true>>",
-		"position": {
-			"x": -80,
-			"y": 2840
-		},
-		"colorID": 0
-	},
-	{
-		"title": "TrainingPlan",
-		"tags": "",
-		"body": "*Some notes about training progress*\nMonday:     3kg\nTuesday:    4kg\nWednesday:  8kg\nThursday:   11kg\nFriday:     44kg\nSaturday:   49kg\nSunday:     ???\n",
-		"position": {
-			"x": 920,
-			"y": 520
-		},
-		"colorID": 0
-	},
-	{
-		"title": "End_Envy_Pride",
-		"tags": "",
-		"body": "<<if visited(\"End_RoomsQuest\") is false>>\n    Blue: Hey! Where is my incredible medal collection?\n    Green: I think I have seen it in another room.\n    Blue: Did you put it there?\n    Green: Maybe. Does it bother you?\n    Blue: No... not at all... buuuut I just realized something.\n    Green: What?\n    Blue: I think I don't really like this room anymore. It actually looks a bit boring. You can have it.\n    Green: Oh! Really? Thanks! But now that you mention it, you are actually kind of right...\n    Blue: Too late. It is yours now.\n    \n    <<wait 5>>\n    [[End]]\n<<endif>>",
-		"position": {
-			"x": -80,
-			"y": 3120
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Envy",
-		"tags": "",
-		"body": "<<if $finished_Medal_Puzzle is false>>\nGreen: Please hurry! I need this room.\n<<else>>\n    [[End_Envy_Pride]]\n<<endif>>",
-		"position": {
-			"x": 240,
-			"y": 2960
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Pride",
-		"tags": "",
-		"body": "<<if $finished_Medal_Puzzle is false>>\nBlue: Are you also here to bother me? This is my room and I won't give it to you.\nBlue: I mean, have you seen how nice my remarkable medal collection looks in here?\n<<else>>\n    [[End_Envy_Pride]]\n<<endif>>",
-		"position": {
-			"x": -320,
-			"y": 2960
-		},
-		"colorID": 0
-	},
-	{
-		"title": "End",
-		"tags": "",
-		"body": "Orange: I like him. Without him I probably would have starved.\nYellow: I doubt that. But yeah, he has a good feeling about what we want and need.\nRed: Groaaaaaaahhhh!!! *Happy grunt noices*\nPink: That is exactly what I wanted to say, big guy. He has a good feeling about privacy.\nCyan: ZZZZZZZZZZzzzzzzzz\nBlue: He did a good job at placing my magnificent medal collection.\nGreen: This room really looks damn boring... but it was really nice of him to help me.\nPlayer: ...\nTherapist: Well then. Our session for today is over. I think we made big advancements this time.\nTherapist: Maybe your brain isn't as \"unstable\" as you always label it.",
-		"position": {
-			"x": -94,
-			"y": 3504
-		},
-		"colorID": 0
-	},
-	{
-		"title": "RoomsNote",
-		"tags": "",
-		"body": "1. Blue doesn't want to live opposite of someone\n2. Cyan just wants to sleep in peace, the exact position doesn't matter\n3. Orange wants to live next to Blue\n4. Blue and Pink don't like each other and prefer to keep a distance between each other\n5. Yellow wants the first room on the right side\n6. Green dislikes Pink, they are definitely not made to be direct neighbours\n7. Green wants to live next to Orange and Red\n8. Red only cares about training\n",
-		"position": {
-			"x": 1100,
-			"y": 1460
-		},
-		"colorID": 0
-	}
-]
+title: Start_Gluttony
+tags: 
+colorID: 0
+position: 320,-400
+---
+<<if $did_meet_gluttony is false>>
+    <<set $did_meet_gluttony to true>>
+    Orange: Hey! Welcome back!
+    Player: ...
+    Player: What are you doing here?
+    Orange: I'm cooking. Well, I wanted to cook at least.
+    Orange: But the pantry is empty, there is no food.
+    Player: Did you eat it?
+    Orange: Well, maybeee...
+    Orange: But that doesn't matter now!
+    Orange: Could you do me a favour and fetch me some ingredients?
+    -> Why not.
+        [[Gluttony_AcceptQuest]]
+    -> Meh, do it yourself!
+        [[Gluttony_RejectQuest]]
+<<else>>
+    <<if $gluttony_quest_complete is false>>
+        Orange: Do you have my ingredients?
+        -> Yes, here!<<if visited("Item_Pickup_Groceries") is true>>
+            [[Gluttony_CompleteQuest]]
+        -> No, not yet
+            Orange: Then off you go
+    <<else>>
+        Orange: I'm sure you have better stuff to do than helping me.
+    <<endif>>
+<<endif>>
+===
+title: Gluttony_AcceptQuest
+tags: 
+colorID: 0
+position: 920,80
+---
+Player: But I better get a portion of whatever you're making when you're done!
+Orange: I would say that you can count on me, but food seems to disappear around me...
+Orange: But I promise to help you handle the others.
+Player: OTHERS???
+Orange: You will see.
+Orange: Now get me those ingredients!
+<<nextStage>>
+===
+title: Gluttony_RejectQuest
+tags: 
+colorID: 0
+position: 920,-240
+---
+Orange: Please!
+[[Nope!|Gluttony_RejectQuest]]
+[[Okay, okay, I'll do it!|Gluttony_AcceptQuest]]
+===
+title: Gluttony_CompleteQuest
+tags: 
+colorID: 0
+position: 269,58
+---
+<<set $gluttony_quest_complete to true>>
+Orange: Yaaaay, you found something. Lemme see!
+Orange: ... Salad, ugh...
+Orange: ... Cheese, yum ...
+Orange: ... And I can use that stuff too...
+Orange: Okay, I think I can come up with something delicious now!
+Orange: You know where to find me when you need something.
+<<nextStage>>
+===
+title: Start_Wrath
+tags: 
+colorID: 0
+position: 163,520
+---
+<<if visited("Start_Wrath") is false>>
+    Red: GRRROOOAAHHH!
+    Red: *Shows bar, but the adjustable weights seem missing*
+    Player: Do you want me to find the missing weights?
+    Red: UHUH! *nods head*
+<<endif>>
+<<if $weight_item > 0 >>
+    Player: Now you can continue your training
+    Red: RAAAH! *puts weights on bar*
+    <<if $weight_item < 3>>
+        Red: HURGH! *lifts bar without struggling*
+        Player: Maybe you need something heavier...
+    <<elseif $weight_item eq 3>>
+        Red: HUUUURGHHHH! *lifts bar slowly*
+        Player: Seems perfect
+        <<nextStage>>
+    <<else>>
+        Red: UMMMPFFF! *weight doesn't move*
+        Player: Perhaps a bit too much...
+    <<endif>>
+<<endif>>
+===
+title: Start_Greed
+tags: 
+colorID: 0
+position: 400,520
+---
+<<if $did_meet_greed is false>>
+    <<set $did_meet_greed to true>>
+    Yellow: What do you want?
+    -> Nothing
+        Yellow: Then leave me alone.
+    -> Say hello
+        Yellow: Hello back.
+        Yellow: Now go away.
+    Yellow: And before you ask, you also can't have those weights, those are mine now.
+<<elseif $has_gold is false and $weight_item eq 0>>
+    Yellow: Go away
+<<endif>>
+<<if $has_gold is true>>
+    Yellow: What's that shiny thing?
+        -> Gold
+        -> Something valuable
+    Yellow: Okay, I would exchange it for one of those weights.
+    Yellow: Which one do you want?
+    <<set $weight_item to 0>>
+    -> 98kg
+        <<set $weight_item to 1>>
+    -> 152kg
+        <<set $weight_item to 2>>        
+    -> 294kg
+        <<set $weight_item to 3>>        
+    -> 366kg
+        <<set $weight_item to 4>>
+    <<set $has_gold to false>>
+<<elseif $weight_item > 0 >>
+    Player: Can I please exchange my weight?
+    Yellow: Hmmm... Which one do you want?
+    -> 98kg <<if $weight_item neq 1 >>
+        <<set $weight_item to 1>>
+    -> 152kg <<if $weight_item neq 2 >>
+        <<set $weight_item to 2>>        
+    -> 294kg <<if $weight_item neq 3 >>
+        <<set $weight_item to 3>>        
+    -> 366kg <<if $weight_item neq 4 >>
+        <<set $weight_item to 4>>
+<<endif>>
+===
+title: Gold_Gluttony
+tags: 
+colorID: 0
+position: 680,520
+---
+Orange: Hey
+<<if visited("Start_Wrath") is true and $has_gold is false and $weight_item eq 0>>
+    Orange: Look what I found!
+    Orange: I tried to eat it, but I hurt my teeth instead.
+    Orange: Here, take it!
+    <<set $has_gold to true>>
+<<endif>>
+===
+title: Start_RoomsQuest
+tags: 
+colorID: 0
+position: -120,1000
+---
+Cyan: Heeey, someone wants to sleep here!
+Cyan: Stop making such weird noises!
+Pink: Stop being such a bore!
+Cyan: Bore? You're a weirdo!
+Pink: The only weird one here would sleep 25h a day if it was possible.
+Cyan: Says the one with questionable objects in their nightstand drawer.
+Pink: At least those are fun, in contrast to a certain roommate.
+Cyan: Fun? I dunno how...
+Cyan: Oh no, not another one...
+-> Who, me?
+-> Sorry, I didn't mean to intrude...
+Pink: Oh, it's okay. I like company - especially interesting people...
+Cyan: I HEARD THAT! Yeesh, take a room, you two...
+Cyan: *dozes off*
+<<nextStage>>
+===
+title: RoomQuest_Sloth
+tags: 
+colorID: 0
+position: 160,1000
+---
+<<if $placement_pickup_counter < 7>>
+    Cyan: ZZZZZzzzz
+<<else>>
+    [[End_RoomsQuest]]
+<<endif>>
+===
+title: RoomQuest_Lust
+tags: 
+colorID: 0
+position: 440,1000
+---
+<<if $placement_pickup_counter < 7>>
+    Pink: Pssst, be quiet! I don't want to deal with a cranky sleepyhead
+<<else>>
+    [[End_RoomsQuest]]
+<<endif>>
+===
+title: Item_Pickup_Gluttony
+tags: 
+colorID: 0
+position: -640,1360
+---
+Chest: *This chest contains food magazines and cookbooks*
+Chest: *You put everything in your inventory*
+<<set $room_item to 1>>
+<<if visited("Item_Pickup_Gluttony") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
+<<endif>>
+===
+title: Item_Pickup_Greed
+tags: 
+colorID: 0
+position: -400,1360
+---
+Chest: *From glittery shiny things to literal rocks, this chest contains a heap of collected things*
+Chest: *You take out a bag and put everything in it*
+Chest: *Hopefully it won't break and spill everything on the floor*
+<<set $room_item to 2>>
+<<if visited("Item_Pickup_Greed") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
+<<endif>>
+===
+title: Item_Pickup_Pride
+tags: 
+colorID: 0
+position: -160,1360
+---
+Chest: *This chest's owner seems to love taking selfies*
+Chest: *You pick up a big photo album*
+<<set $room_item to 3>>
+<<if visited("Item_Pickup_Pride") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
+<<endif>>
+===
+title: Item_Pickup_Sloth
+tags: 
+colorID: 0
+position: 80,1360
+---
+Chest: *A plushy zoo awaits you after opening this chest*
+Chest: *You try to guide them to their new home*
+<<set $room_item to 4>>
+<<if visited("Item_Pickup_Sloth") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
+<<endif>>
+===
+title: Item_Pickup_Envy
+tags: 
+colorID: 0
+position: 320,1360
+---
+Chest: *Weird, this chest only contains a list of things*
+<<if $moving_opened_counter > 0 and $moving_opened_counter < 7 >>
+    Chest: *Even weirder, you have seen some of those things recently*
+<<endif>>
+<<if $moving_opened_counter eq 6 >>
+    Chest: *Hey, those are all things from the other chests!*
+<<endif>>
+Chest: *Still, you put it in your bag*
+<<set $room_item to 5>>
+===
+title: Item_Pickup_Wrath
+tags: 
+colorID: 0
+position: 560,1360
+---
+Chest: *Fitness seems to be the main concern of this chest's owner*
+Chest: *Moving this stuff is going to be challenging*
+<<set $room_item to 6>>
+<<if visited("Item_Pickup_Wrath") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
+<<endif>>
+===
+title: Item_Pickup_Lust
+tags: 
+colorID: 0
+position: 800,1360
+---
+Chest: *You don't know what half of this stuff is, and you get the slight feeling that it's better this way*
+Chest: *Carefully you pick everything up, trying to touch everything as little as possible*
+
+<<set $room_item to 7>>
+<<if visited("Item_Pickup_Lust") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
+<<endif>>
+===
+title: Item_Placement_Gluttony
+tags: 
+colorID: 0
+position: -640,1680
+---
+<<if $room_item eq 1>>
+    Chest: *You put the books away*
+    <<set $room_item to 0>>
+    <<destroy GluttonyChestOld true>>
+    <<destroy GluttonyChestOverlay true>>
+    <<destroy Chests_2 true>>
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<else>>
+    Player: Nah, that can't be right
+<<endif>>
+===
+title: Item_Placement_Greed
+tags: 
+colorID: 0
+position: -400,1680
+---
+<<if $room_item eq 2>>
+    Chest: *You try to organize this heap of things, but in the end you just put it all into a big box*
+    <<set $room_item to 0>>
+    <<destroy GreedChestOld true>>
+    <<destroy GreedChestOverlay true>>
+    <<destroy Chests_6 true>>
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<else>>
+    Player: Nah, that can't be right
+<<endif>>
+===
+title: Item_Placement_Pride
+tags: 
+colorID: 0
+position: -160,1680
+---
+<<if $room_item eq 3>>
+    Chest: You put the selfie album on the nightstand.
+    <<set $room_item to 0>>
+    <<destroy PrideChestOld true>>
+    <<destroy PrideChestOverlay true>>
+    <<destroy Chests_3 true>>
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<else>>
+    Player: Nah, that can't be right
+<<endif>>
+===
+title: Item_Placement_Sloth
+tags: 
+colorID: 0
+position: 80,1680
+---
+<<if $room_item eq 4>>
+    Chest: *You take your time with placing every plushie on the bed, and hug each of them*
+    <<set $room_item to 0>>
+    <<destroy SlothChestOld true>>
+    <<destroy SlothChestOverlay true>>
+    <<destroy Chests_4 true>>
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<else>>
+    Player: Nah, that can't be right
+<<endif>>
+===
+title: Item_Placement_Envy
+tags: 
+colorID: 0
+position: 320,1680
+---
+<<if $room_item eq 5>>
+    Chest: *You take a last skeptical look at the list of things and leave it in the room*
+    <<set $room_item to 0>>
+    <<destroy EnvyChestOld true>>
+    <<destroy EnvyChestOverlay true>>
+    <<destroy Chests_1 true>>
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<else>>
+    Player: Nah, that can't be right
+<<endif>>
+===
+title: Item_Placement_Wrath
+tags: 
+colorID: 0
+position: 560,1680
+---
+<<if $room_item eq 6>>
+    Chest: *On the last few steps your strength leaves you*
+    Chest: *You find out that heavy fitness equipment hurts when it lands on your foot*
+    <<set $room_item to 0>>
+    <<destroy WrathChestOld true>>
+    <<destroy WrathChestOverlay true>>
+    <<destroy Chests_0 true>>
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<else>>
+    Player: Nah, that can't be right
+<<endif>>
+===
+title: Item_Placement_Lust
+tags: 
+colorID: 0
+position: 800,1680
+---
+<<if $room_item eq 7>>
+    Chest: *You just dump everything into a drawer and try to forget about its contents*
+    <<set $room_item to 0>>
+    <<destroy LustChestOld true>>
+    <<destroy LustChestOverlay true>>
+    <<destroy Chests_5 true>>
+    <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
+<<else>>
+    Player: Nah, that can't be right
+<<endif>>
+===
+title: Item_Pickup_Groceries
+tags: 
+colorID: 0
+position: -240,-280
+---
+Bag: *Seems like someone bought groceries*
+Bag: *You pick the bag up*
+<<destroy Groceries true>>
+===
+title: End_RoomsQuest
+tags: 
+colorID: 0
+position: -80,2480
+---
+<<if visited("End_RoomsQuest") is false>>
+    Player: Hey, I found some spare rooms. Now you don't have to share.
+    Pink: Nice. I hope the walls are quite soundproof.
+    Cyan: *slowly wakes up* Five more minutes...
+    Pink: No, except you want to stay in this room together.
+    Pink: Come, let's look for our new rooms.
+    Cyan: Okay, I'm coming. I just have to wake up a bit...
+    Pink: That could take hours. Maybe go on without us.
+    <<nextStage>>
+<<endif>>
+===
+title: Start_Envy_Pride
+tags: 
+colorID: 0
+position: -80,2840
+---
+Blue: I told you: This is my room and I won't give it to you!
+Green: But it is not fair. Your room is way bigger than all the other rooms.
+Blue: If you want a big room you can stay in our previously shared room.
+Green: You know that I can't do that. That is not allowed anymore.
+Blue: Well then: Bad luck!
+Green: Oh come on! You have so many cool things. Can't you give up at least one thing?
+Blue: Guess not, sorry.
+Green: Hmmm... Oh hey, it's you. Can you please help?
+-> I can try.
+<<destroy PrideEnvy_Discussion true>>
+===
+title: TrainingPlan
+tags: 
+colorID: 0
+position: 920,520
+---
+*Some notes about training progress*
+Monday:     3kg
+Tuesday:    4kg
+Wednesday:  8kg
+Thursday:   11kg
+Friday:     44kg
+Saturday:   49kg
+Sunday:     ???
+===
+title: End_Envy_Pride
+tags: 
+colorID: 0
+position: -80,3120
+---
+<<if visited("End_RoomsQuest") is false>>
+    Blue: Hey! Where is my incredible medal collection?
+    Green: I think I have seen it in another room.
+    Blue: Did you put it there?
+    Green: Maybe. Does it bother you?
+    Blue: No... not at all... buuuut I just realized something.
+    Green: What?
+    Blue: I think I don't really like this room anymore. It actually looks a bit boring. You can have it.
+    Green: Oh! Really? Thanks! But now that you mention it, you are actually kind of right...
+    Blue: Too late. It is yours now.
+    
+    <<wait 5>>
+    [[End]]
+<<endif>>
+===
+title: Envy
+tags: 
+colorID: 0
+position: 240,2960
+---
+<<if $finished_Medal_Puzzle is false>>
+Green: Please hurry! I need this room.
+<<else>>
+    [[End_Envy_Pride]]
+<<endif>>
+===
+title: Pride
+tags: 
+colorID: 0
+position: -320,2960
+---
+<<if $finished_Medal_Puzzle is false>>
+Blue: Are you also here to bother me? This is my room and I won't give it to you.
+Blue: I mean, have you seen how nice my remarkable medal collection looks in here?
+<<else>>
+    [[End_Envy_Pride]]
+<<endif>>
+===
+title: End
+tags: 
+colorID: 0
+position: -94,3504
+---
+Orange: I like him. Without him I probably would have starved.
+Yellow: I doubt that. But yeah, he has a good feeling about what we want and need.
+Red: Groaaaaaaahhhh!!! *Happy grunt noices*
+Pink: That is exactly what I wanted to say, big guy. He has a good feeling about privacy.
+Cyan: ZZZZZZZZZZzzzzzzzz
+Blue: He did a good job at placing my magnificent medal collection.
+Green: This room really looks damn boring... but it was really nice of him to help me.
+Player: ...
+Therapist: Well then. Our session for today is over. I think we made big advancements this time.
+Therapist: Maybe your brain isn't as "unstable" as you always label it.
+===
+title: RoomsNote
+tags: 
+colorID: 0
+position: 1100,1460
+---
+1. Blue doesn't want to live opposite of someone
+2. Cyan just wants to sleep in peace, the exact position doesn't matter
+3. Orange wants to live next to Blue
+4. Blue and Pink don't like each other and prefer to keep a distance between each other
+5. Yellow wants the first room on the right side
+6. Green dislikes Pink, they are definitely not made to be direct neighbours
+7. Green wants to live next to Orange and Red
+8. Red only cares about training
+===
