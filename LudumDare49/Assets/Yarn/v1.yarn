@@ -452,7 +452,6 @@ Green: Oh come on! You have so many cool things. Can't you give up at least one 
 Blue: Guess not, sorry.
 Green: Hmmm... Oh hey, it's you. Can you please help?
 -> I can try.
-<<destroy PrideEnvy_Discussion true>>
 ===
 title: TrainingPlan
 tags: 
@@ -485,6 +484,7 @@ position: -80,3120
     Blue: Too late. It is yours now.
     
     <<wait 5>>
+    <<nextStage>>
     [[End]]
 <<endif>>
 ===
@@ -552,4 +552,35 @@ position: 1100,1460
 6. Green dislikes Pink, they are definitely not made to be direct neighbours
 7. Green wants to live next to Orange and Red
 8. Red only cares about training
+===
+title: OldMedal
+tags: 
+colorID: 0
+position: 520,2880
+---
+<<if visited("Start_Envy_Pride") is true>>
+    Player: Maybe I could move this to another room...
+    Player: *You take the medal collection with you*
+    <<destroy MedalOld true>>
+    <<set $enable_medal_puzzle to true>>
+<<endif>>
+===
+title: NewMedal
+tags: 
+colorID: 0
+position: 800,2880
+---
+<<if $enable_medal_puzzle is true>>
+    <<enable 0>>
+<<endif>>
+===
+title: MedalGameFinish
+tags: 
+colorID: 0
+position: 1120,2840
+---
+<<enable 1>>
+<<set $finished_Medal_Puzzle to true>>
+<<destroy MedalGame true>>
+<<destroy MedalNew false>>
 ===

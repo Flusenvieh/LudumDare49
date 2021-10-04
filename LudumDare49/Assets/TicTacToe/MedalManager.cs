@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public static class MedalManager
 {
@@ -39,6 +40,8 @@ public static class MedalManager
             }
         }
 
-        Debug.LogError("You Did It");
+        //GameObject.FindObjectOfType<InMemoryVariableStorage>().SetValue("finished_Medal_Puzzle", true);
+        //GameObject.Destroy(GameObject.Find("MedalNew").GetComponent<StartDialogueNode>());
+        GameObject.FindObjectOfType<DialogueRunner>().StartDialogue("MedalGameFinish");
     }
 }
