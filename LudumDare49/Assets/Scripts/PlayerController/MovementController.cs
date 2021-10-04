@@ -10,10 +10,13 @@ public class MovementController : MonoBehaviour
     private Rigidbody2D _Rigidbody2D;
     private Animator _Animator;
 
+    private bool _WalkLeft, _WalkRight, _WalkFront, _WalkBack;
+
 	private void Awake()
 	{
         _Rigidbody2D = GetComponent<Rigidbody2D>();
         _Animator = GetComponent<Animator>();
+        _Animator.SetBool("Left", true);
 	}
 
 	void Update()
@@ -25,56 +28,34 @@ public class MovementController : MonoBehaviour
 
         _Rigidbody2D.velocity = movementVector;
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            _Animator.SetTrigger("StartWalkLeft");
-            _Animator.ResetTrigger("StopWalkLeft");
-            _Animator.ResetTrigger("StopWalkFront");
-            _Animator.ResetTrigger("StopWalkRight");
-            _Animator.ResetTrigger("StopWalkBack");
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            _Animator.SetTrigger("StopWalkLeft");
-        }
+        _Animator.SetFloat("Horizontal", inputX);
+        _Animator.SetFloat("Vertical", inputY);
+        _Animator.SetFloat("Speed", _Rigidbody2D.velocity.magnitude);
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if(inputX>0)
+		{
+            _Animator.SetBool("Right", true);
+            _Animator.SetBool("Left", false);
+            _Animator.SetBool("Front", false);
+            _Animator.SetBool("Back", false);
+		}else if (inputX < 0)
         {
-            _Animator.SetTrigger("StartWalkBack");
-            _Animator.ResetTrigger("StopWalkLeft");
-            _Animator.ResetTrigger("StopWalkFront");
-            _Animator.ResetTrigger("StopWalkRight");
-            _Animator.ResetTrigger("StopWalkBack");
-        }
-        if (Input.GetKeyUp(KeyCode.W))
+            _Animator.SetBool("Right", false);
+            _Animator.SetBool("Left", true);
+            _Animator.SetBool("Front", false);
+            _Animator.SetBool("Back", false);
+        }else if (inputY > 0)
         {
-            _Animator.SetTrigger("StopWalkBack");
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
+            _Animator.SetBool("Right", false);
+            _Animator.SetBool("Left", false);
+            _Animator.SetBool("Front", false);
+            _Animator.SetBool("Back", true);
+        }else if (inputY < 0)
         {
-            _Animator.SetTrigger("StartWalkRight");
-            _Animator.ResetTrigger("StopWalkLeft");
-            _Animator.ResetTrigger("StopWalkFront");
-            _Animator.ResetTrigger("StopWalkRight");
-            _Animator.ResetTrigger("StopWalkBack");
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            _Animator.SetTrigger("StopWalkRight");
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            _Animator.SetTrigger("StartWalkFront");
-            _Animator.ResetTrigger("StopWalkLeft");
-            _Animator.ResetTrigger("StopWalkFront");
-            _Animator.ResetTrigger("StopWalkRight");
-            _Animator.ResetTrigger("StopWalkBack");
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            _Animator.SetTrigger("StopWalkFront");
+            _Animator.SetBool("Right", false);
+            _Animator.SetBool("Left", false);
+            _Animator.SetBool("Front", true);
+            _Animator.SetBool("Back", false);
         }
     }
 }
