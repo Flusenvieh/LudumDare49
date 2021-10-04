@@ -69,7 +69,7 @@ Gluttony: You know where to find me when you need something.
 title: Start_Wrath
 tags: 
 colorID: 0
-position: 160,520
+position: 163,520
 ---
 <<if visited("Start_Wrath") is false>>
     Wrath: GRRROOOAAHHH!
@@ -115,25 +115,25 @@ position: 400,520
     Greed: Okay, I would exchange it for one of those weights.
     Greed: Which one do you want?
     <<set $weight_item to 0>>
-    -> 10kg
+    -> 98kg
         <<set $weight_item to 1>>
-    -> 25kg
+    -> 152kg
         <<set $weight_item to 2>>        
-    -> 50kg
+    -> 294kg
         <<set $weight_item to 3>>        
-    -> 100kg
+    -> 366kg
         <<set $weight_item to 4>>
     <<set $has_gold to false>>
 <<elseif $weight_item > 0 >>
     Player: Can I please exchange my weight?
     Greed: Hmmm... Which one do you want?
-    -> 10kg <<if $weight_item neq 1 >>
+    -> 98kg <<if $weight_item neq 1 >>
         <<set $weight_item to 1>>
-    -> 25kg <<if $weight_item neq 2 >>
+    -> 152kg <<if $weight_item neq 2 >>
         <<set $weight_item to 2>>        
-    -> 50kg <<if $weight_item neq 3 >>
+    -> 294kg <<if $weight_item neq 3 >>
         <<set $weight_item to 3>>        
-    -> 100kg <<if $weight_item neq 4 >>
+    -> 366kg <<if $weight_item neq 4 >>
         <<set $weight_item to 4>>
 <<endif>>
 ===
@@ -341,7 +341,7 @@ Bag: *You pick the bag up*
 title: End_RoomsQuest
 tags: 
 colorID: 0
-position: 0,1960
+position: -53,1924
 ---
 <<if $placement_pickup_counter eq 7>>
     Player: Hey, I found some spare rooms. Now you don't have to share.
@@ -353,12 +353,20 @@ position: 0,1960
     Lust: That could take hours. Maybe go on without us.
 <<endif>>
 ===
-title: Node
+title: Start_Envy_Pride
 tags: 
 colorID: 0
-position: -200,2400
+position: -55,2273
 ---
-Empty Text
+Pride: I told you: This is my room and I won't give it to you!
+Envy: But it is not fair. Your room is way bigger than all the other rooms.
+Pride: If you want a big room you can stay in our previously shared room.
+Envy: You know that I can't do that. That is not allowed anymore.
+Pride: Well then: Bad luck!
+Envy: Oh come on! You have so many cool things. Can't you give up at least one thing?
+Pride: Guess not, sorry.
+Envy: Hmmm... Oh hey, it's you. Can you please help?
+-> I can try.
 ===
 title: TrainingPlan
 tags: 
@@ -366,4 +374,63 @@ colorID: 0
 position: 920,520
 ---
 *Some notes about training progress*
+Monday:     3kg
+Tuesday:    4kg
+Wednesday:  8kg
+Thursday:   11kg
+Friday:     44kg
+Saturday:   49kg
+Sunday:     ???
+===
+title: End_Envy_Pride
+tags: 
+colorID: 0
+position: -54,2581
+---
+<<if $finished_Medal_Puzzle is true>>
+Pride: Hey! Where is my incredible medal collection?
+Envy: I think I have seen it in another room.
+Pride: Did you put it there?
+Envy: Maybe. Does it bother you?
+Pride: No... not at all... buuuut I just realized something.
+Envy: What?
+Pride: I think I don't really like this room anymore. It actually looks a bit boring. You can have it.
+Envy: Oh! Really? Thanks! But now that you mention it, you are actually kind of right...
+Pride: Too late. It is yours now.
+<<endif>>
+===
+title: Envy
+tags: 
+colorID: 0
+position: 248,2414
+---
+<<if $finished_Medal_Puzzle is false>>
+Envy: Please hurry! I need this room.
+<<endif>>
+===
+title: Pride
+tags: 
+colorID: 0
+position: -287,2416
+---
+<<if $finished_Medal_Puzzle is false>>
+Pride: Are you also here to bother me? This is my room and I won't give it to you.
+Pride: I mean, have you seen how nice my remarkable medal collection looks in here?
+<<endif>>
+===
+title: End
+tags: 
+colorID: 0
+position: -67,2948
+---
+Gluttony: I like him. Without him I probably would have starved.
+Greed: I doubt that. But yeah, he has a good feeling about what we want and need.
+Wrath: Groaaaaaaahhhh!!! *Happy grunt noices*
+Lust: That is exactly what I wanted to say, big guy. He has a good feeling about privacy.
+Sloth: ZZZZZZZZZZzzzzzzzz
+Pride: He did a good job at placing my magnificent medal collection.
+Envy: This room really looks damn boring... but it was really nice of him to help me.
+Player: ...
+Therapist: Well then. Our session for today is over. I think we made big advancements this time.
+Therapist: Maybe your brain isn't as "unstable" as you always label it.
 ===
