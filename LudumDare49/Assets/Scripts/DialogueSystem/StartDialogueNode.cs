@@ -20,7 +20,7 @@ public class StartDialogueNode : MonoBehaviour
 
     private void Start()
     {
-        Assert.IsTrue(dialogueRunner.NodeExists(nodeToRun), "Following node could not be found: " + nodeToRun);
+        //Assert.IsTrue(dialogueRunner.NodeExists(nodeToRun), "Following node could not be found: " + nodeToRun);
 
     }
 
@@ -37,18 +37,6 @@ public class StartDialogueNode : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position) <= interactionDistance && Input.GetKeyDown(KeyCode.E))
         {
             dialogueRunner.StartDialogue(nodeToRun);
-            dialogueRunner.onDialogueComplete.AddListener(DestroyEntity);
-        }
-    }
-
-    void DestroyEntity()
-    {
-        dialogueRunner.onDialogueComplete.RemoveListener(DestroyEntity);
-        switch(stuffToDestroy)
-        {
-            case DestroyMode.nothing: break;
-            case DestroyMode.scriptOnly: Destroy(this); break;
-            case DestroyMode.fullGameObject: Destroy(this.gameObject); break;
         }
     }
 

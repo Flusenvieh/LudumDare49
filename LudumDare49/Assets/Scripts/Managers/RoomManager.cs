@@ -20,6 +20,7 @@ public class RoomManager : MonoBehaviour
 		}
 
 		dialogueRunner.AddCommandHandler("nextStage", NextStage);
+		dialogueRunner.AddCommandHandler("destroy", DestroyEntity);
 	}
 
     private void Update()
@@ -40,6 +41,21 @@ public class RoomManager : MonoBehaviour
 			RoomTilesInStages[CurrentStage].Activate();
 
 			Debug.Log("Advancing stage");
+		}
+	}
+
+	[YarnCommand("destroy")]
+	void DestroyEntity(string[] parameters)
+	{
+		GameObject go = GameObject.Find(parameters[0]);
+
+		if (parameters[1] == "true")
+		{
+			Destroy(go);
+		}
+		else
+		{
+			Destroy(go.GetComponent<StartDialogueNode>());
 		}
 	}
 }
