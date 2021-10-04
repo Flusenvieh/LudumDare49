@@ -201,12 +201,10 @@ colorID: 0
 position: -640,1360
 ---
 Chest: *This chest contains food magazines and cookbooks*
-
-<<set $moving_opened_counter to $moving_opened_counter + 1>>
-<<if $room_item eq 0>>
-    Chest: *You put everything in your inventory*
-    <<set $room_item to 1>>
-    <<destroy GluttonyChestOld true>>
+Chest: *You put everything in your inventory*
+<<set $room_item to 1>>
+<<if visited("Item_Pickup_Gluttony") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
 <<endif>>
 ===
 title: Item_Pickup_Greed
@@ -215,13 +213,11 @@ colorID: 0
 position: -400,1360
 ---
 Chest: *From glittery shiny things to literal rocks, this chest contains a heap of collected things*
-
-<<set $moving_opened_counter to $moving_opened_counter + 1>>
-<<if $room_item eq 0>>
-    Chest: *You take out a bag and put everything in it*
-    Chest: *Hopefully it won't break and spill everything on the floor*
-    <<set $room_item to 2>>
-    <<destroy GreedChestOld true>>
+Chest: *You take out a bag and put everything in it*
+Chest: *Hopefully it won't break and spill everything on the floor*
+<<set $room_item to 2>>
+<<if visited("Item_Pickup_Greed") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
 <<endif>>
 ===
 title: Item_Pickup_Pride
@@ -230,12 +226,10 @@ colorID: 0
 position: -160,1360
 ---
 Chest: *This chest's owner seems to love taking selfies*
-
-<<set $moving_opened_counter to $moving_opened_counter + 1>>
-<<if $room_item eq 0>>
-    Chest: *You pick up a big photo album*
-    <<set $room_item to 3>>
-    <<destroy PrideChestOld true>>
+Chest: *You pick up a big photo album*
+<<set $room_item to 3>>
+<<if visited("Item_Pickup_Pride") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
 <<endif>>
 ===
 title: Item_Pickup_Sloth
@@ -244,12 +238,10 @@ colorID: 0
 position: 80,1360
 ---
 Chest: *A plushy zoo awaits you after opening this chest*
-
-<<set $moving_opened_counter to $moving_opened_counter + 1>>
-<<if $room_item eq 0>>
-    Chest: *You try to guide them to their new home*
-    <<set $room_item to 4>>
-    <<destroy SlothChestOld true>>
+Chest: *You try to guide them to their new home*
+<<set $room_item to 4>>
+<<if visited("Item_Pickup_Sloth") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
 <<endif>>
 ===
 title: Item_Pickup_Envy
@@ -261,16 +253,11 @@ Chest: *Weird, this chest only contains a list of things*
 <<if $moving_opened_counter > 0 and $moving_opened_counter < 7 >>
     Chest: *Even weirder, you have seen some of those things recently*
 <<endif>>
-<<if $moving_opened_counter eq 7 >>
+<<if $moving_opened_counter eq 6 >>
     Chest: *Hey, those are all things from the other chests!*
 <<endif>>
-
-<<set $moving_opened_counter to $moving_opened_counter + 1>>
-<<if $room_item eq 0>>
-    Chest: *Still, you put it in your bag*
-    <<set $room_item to 5>>
-    <<destroy EnvyChestOld true>>
-<<endif>>
+Chest: *Still, you put it in your bag*
+<<set $room_item to 5>>
 ===
 title: Item_Pickup_Wrath
 tags: 
@@ -278,12 +265,10 @@ colorID: 0
 position: 560,1360
 ---
 Chest: *Fitness seems to be the main concern of this chest's owner*
-
-<<set $moving_opened_counter to $moving_opened_counter + 1>>
-<<if $room_item eq 0>>
-    Chest: *Moving this stuff is going to be challenging*
-    <<set $room_item to 6>>
-    <<destroy WrathChestOld true>>
+Chest: *Moving this stuff is going to be challenging*
+<<set $room_item to 6>>
+<<if visited("Item_Pickup_Wrath") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
 <<endif>>
 ===
 title: Item_Pickup_Lust
@@ -292,12 +277,11 @@ colorID: 0
 position: 800,1360
 ---
 Chest: *You don't know what half of this stuff is, and you get the slight feeling that it's better this way*
+Chest: *Carefully you pick everything up, trying to touch everything as little as possible*
 
-<<set $moving_opened_counter to $moving_opened_counter + 1>>
-<<if $room_item eq 0>>
-    Chest: *Carefully you pick everything up, trying to touch everything as little as possible*
-    <<set $room_item to 7>>
-    <<destroy LustChestOld true>>
+<<set $room_item to 7>>
+<<if visited("Item_Pickup_Lust") is false>>
+    <<set $moving_opened_counter to $moving_opened_counter + 1>>
 <<endif>>
 ===
 title: Item_Placement_Gluttony
@@ -309,6 +293,7 @@ position: -640,1680
     Chest: *You put the books away*
     <<set $room_item to 0>>
     <<destroy GluttonyChestNew false>>
+    <<destroy GluttonyChestOld true>>
     <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
 <<else>>
     Player: Nah, that can't be right
@@ -323,6 +308,7 @@ position: -400,1680
     Chest: *You try to organize this heap of things, but in the end you just put it all into a big box*
     <<set $room_item to 0>>
     <<destroy GreedChestNew false>>
+    <<destroy GreedChestOld true>>
     <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
 <<else>>
     Player: Nah, that can't be right
@@ -337,6 +323,7 @@ position: -160,1680
     Chest: You put the selfie album on the nightstand.
     <<set $room_item to 0>>
     <<destroy PrideChestNew false>>
+    <<destroy PrideChestOld true>>
     <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
 <<else>>
     Player: Nah, that can't be right
@@ -351,6 +338,7 @@ position: 80,1680
     Chest: *You take your time with placing every plushie on the bed, and hug each of them*
     <<set $room_item to 0>>
     <<destroy SlothChestNew false>>
+    <<destroy SlothChestOld true>>
     <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
 <<else>>
     Player: Nah, that can't be right
@@ -365,6 +353,7 @@ position: 320,1680
     Chest: *You take a last skeptical look at the list of things and leave it in the room*
     <<set $room_item to 0>>
     <<destroy EnvyChestNew false>>
+    <<destroy EnvyChestOld true>>
     <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
 <<else>>
     Player: Nah, that can't be right
@@ -380,6 +369,7 @@ position: 560,1680
     Chest: *You find out that heavy fitness equipment hurts when it lands on your foot*
     <<set $room_item to 0>>
     <<destroy WrathChestNew false>>
+    <<destroy WrathChestOld true>>
     <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
 <<else>>
     Player: Nah, that can't be right
@@ -394,6 +384,7 @@ position: 800,1680
     Chest: *You just dump everything into a drawer and try to forget about its contents*
     <<set $room_item to 0>>
     <<destroy LustChestNew false>>
+    <<destroy LustChestOld true>>
     <<set $placement_pickup_counter to $placement_pickup_counter + 1>>
 <<else>>
     Player: Nah, that can't be right
