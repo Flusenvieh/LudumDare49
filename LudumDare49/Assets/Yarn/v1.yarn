@@ -472,35 +472,31 @@ tags:
 colorID: 0
 position: -80,3120
 ---
-<<if visited("End_RoomsQuest") is false>>
-    Blue: Hey! Where is my incredible medal collection?
-    Green: I think I have seen it in another room.
-    Blue: Did you put it there?
-    Green: Maybe. Does it bother you?
-    Blue: No... not at all... buuuut I just realized something.
-    Green: What?
-    Blue: I think I don't really like this room anymore. It actually looks a bit boring. You can have it.
-    Green: Oh! Really? Thanks! But now that you mention it, you are actually kind of right...
-    Blue: Too late. It is yours now.
-    
-    <<wait 3>>
-    <<nextStage>>
-    [[End]]
-<<endif>>
+Blue: Hey! Where is my incredible medal collection?
+Green: I think I have seen it in another room.
+Blue: Did you put it there?
+Green: Maybe. Does it bother you?
+Blue: No... not at all... buuuut I just realized something.
+Green: What?
+Blue: I think I don't really like this room anymore. It actually looks a bit boring. You can have it.
+Green: Oh! Really? Thanks! But now that you mention it, you are actually kind of right...
+Blue: Too late. It is yours now.
+
+<<wait 3>>
+<<nextStage>>
+[[End]]
 ===
 title: Envy
 tags: 
 colorID: 0
 position: 240,2960
 ---
-Green: test1
 <<if visited("Start_Envy_Pride") is false>>
     [[Start_Envy_Pride]]
 <<else>>
     <<if $finished_Medal_Puzzle is false>>
         Green: Please hurry! I need this room.
     <<else>>
-        Green: test 2
         <<if visited("End_Envy_Pride") is false>>
             [[End_Envy_Pride]]
         <<endif>>
@@ -512,7 +508,6 @@ tags:
 colorID: 0
 position: -320,2960
 ---
-Blue: test 1
 <<if visited("Start_Envy_Pride") is false>>
     [[Start_Envy_Pride]]
 <<else>>
@@ -520,7 +515,6 @@ Blue: test 1
         Blue: Are you also here to bother me? This is my room and I won't give it to you.
         Blue: I mean, have you seen how nice my remarkable medal collection looks in here?
     <<else>>
-        Blue: test 2
         <<if visited("End_Envy_Pride") is false>>
             [[End_Envy_Pride]]
         <<endif>>
