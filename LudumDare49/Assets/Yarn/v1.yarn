@@ -107,6 +107,8 @@ position: 400,520
         Greed: Hello back.
         Greed: Now go away.
     Greed: And before you ask, you also can't have those weights, those are mine now.
+<<elseif $has_gold is false and $weight_item eq 0>>
+    Greed: Go away
 <<endif>>
 <<if $has_gold is true>>
     Greed: What's that shiny thing?

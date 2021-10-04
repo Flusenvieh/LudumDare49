@@ -10,23 +10,15 @@ public class StartDialogueNode : MonoBehaviour
     private string nodeToRun;
     [SerializeField]
     private float interactionDistance;
-    [SerializeField]
-    private DestroyMode stuffToDestroy;
 
     [SerializeField]
     private DialogueRunner dialogueRunner;
     [SerializeField]
     private Transform player;
 
-    private void Start()
-    {
-        //Assert.IsTrue(dialogueRunner.NodeExists(nodeToRun), "Following node could not be found: " + nodeToRun);
-
-    }
-
     private void OnDrawGizmos()
     {
-                // Draw a yellow sphere at the transform's position
+        // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, interactionDistance);
     }
@@ -34,16 +26,9 @@ public class StartDialogueNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) <= interactionDistance && Input.GetKeyDown(KeyCode.E))
+        if (Vector3.Distance(transform.position, player.position) <= interactionDistance && Input.GetKeyDown(KeyCode.E) && !dialogueRunner.IsDialogueRunning)
         {
             dialogueRunner.StartDialogue(nodeToRun);
         }
-    }
-
-    enum DestroyMode
-    {
-        nothing,
-        scriptOnly,
-        fullGameObject
     }
 }
